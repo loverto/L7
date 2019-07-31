@@ -1,0 +1,1 @@
+module.exports = '#ifdef USE_ROUGHNESSMAP\n\n\tuniform sampler2D roughnessMap;\n\n#endif';

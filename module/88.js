@@ -1,0 +1,1 @@
+module.exports = '#ifdef ALPHATEST\n\n\tif ( diffuseColor.a < ALPHATEST ) discard;\n\n#endif\n';

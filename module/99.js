@@ -1,0 +1,1 @@
+module.exports = '#ifdef USE_COLOR\n\n\tdiffuseColor.rgb *= vColor;\n\n#endif';

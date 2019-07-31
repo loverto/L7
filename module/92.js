@@ -1,0 +1,1 @@
+module.exports = '\nvec3 objectNormal = vec3( normal );\n';

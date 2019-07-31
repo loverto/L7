@@ -1,0 +1,1 @@
+module.exports = '#ifdef USE_COLOR\n\n\tvColor.xyz = color.xyz;\n\n#endif';

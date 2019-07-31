@@ -1,0 +1,1 @@
+module.exports = 'precision highp float;\nuniform float u_opacity;\nvarying vec4 v_color;\nvoid main() {\n    gl_FragColor = v_color;\n    gl_FragColor.a =  v_color.a * u_opacity ;\n}\n';

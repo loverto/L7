@@ -1,0 +1,5 @@
+{
+  "type": "browserify",
+  "entryPoint": 0,
+  "knownPaths": {}
+}

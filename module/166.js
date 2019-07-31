@@ -1,0 +1,1 @@
+module.exports = '#if defined( TONE_MAPPING )\n\n  gl_FragColor.rgb = toneMapping( gl_FragColor.rgb );\n\n#endif\n';

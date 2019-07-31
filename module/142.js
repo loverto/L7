@@ -1,0 +1,1 @@
+module.exports = '#ifdef USE_METALNESSMAP\n\n\tuniform sampler2D metalnessMap;\n\n#endif';

@@ -1,0 +1,1 @@
+module.exports = '\nvec3 transformed = vec3( position );\n';

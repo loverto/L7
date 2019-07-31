@@ -1,0 +1,1 @@
+module.exports = '#if defined( DITHERING )\n\n  gl_FragColor.rgb = dithering( gl_FragColor.rgb );\n\n#endif\n';

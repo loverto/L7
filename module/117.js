@@ -1,0 +1,1 @@
+module.exports = '#ifdef USE_FOG\n\n\tvarying float fogDepth;\n\n#endif\n';

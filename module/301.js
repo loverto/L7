@@ -1,0 +1,1 @@
+module.exports = '  precision mediump float;\n  uniform float u_opacity;\n  varying vec4 v_color;\n  \n  void main() {\n      if(v_color.a == 0.){\n        discard;\n      }\n      gl_FragColor = v_color;\n      gl_FragColor.a = v_color.a*u_opacity;\n\n  }';

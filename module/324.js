@@ -1,0 +1,1 @@
+module.exports = 'precision mediump float;\nuniform sampler2D u_texture;\nuniform float u_opacity;\nvarying vec2 v_texCoord;\nvoid main() {\n  vec4 color = texture2D(u_texture,vec2(v_texCoord.x,1.0-v_texCoord.y));\n  gl_FragColor = color * u_opacity;\n}';

@@ -1,0 +1,1 @@
+module.exports = '#ifdef USE_ALPHAMAP\n\n\tdiffuseColor.a *= texture2D( alphaMap, vUv ).g;\n\n#endif\n';

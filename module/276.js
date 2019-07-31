@@ -1,0 +1,1 @@
+module.exports = '\nprecision highp float;\nvarying vec4 worldId;\nvoid main() {\n    if(worldId.x == 0. &&worldId.y == 0. && worldId.z==0.){\n        discard;\n        return;\n    }\n    gl_FragColor = worldId;\n}';

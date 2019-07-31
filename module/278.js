@@ -1,0 +1,9 @@
+var Base = require('./12');
+Base.Color = require('./279');
+Base.Size = require('./280');
+Base.Opacity = require('./281');
+Base.Shape = require('./282');
+Base.Position = require('./283');
+Base.Symbol = require('./284');
+Base.Filter = require('./285');
+module.exports = Base;

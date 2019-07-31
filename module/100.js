@@ -1,0 +1,1 @@
+module.exports = '#ifdef USE_COLOR\n\n\tvarying vec3 vColor;\n\n#endif\n';

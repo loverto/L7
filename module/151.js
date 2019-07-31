@@ -1,0 +1,1 @@
+module.exports = 'vec4 mvPosition = modelViewMatrix * vec4( transformed, 1.0 );\n\ngl_Position = projectionMatrix * mvPosition;\n';

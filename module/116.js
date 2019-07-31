@@ -1,0 +1,1 @@
+module.exports = '#ifdef USE_FOG\n\n\tfogDepth = -mvPosition.z;\n\n#endif\n';

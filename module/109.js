@@ -1,0 +1,1 @@
+module.exports = '#ifdef USE_EMISSIVEMAP\n\n\tuniform sampler2D emissiveMap;\n\n#endif\n';

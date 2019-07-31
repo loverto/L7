@@ -1,0 +1,1 @@
+module.exports = 'precision highp float;\nvarying vec2 v_texCoord;\nvoid main() {\n   mat4 matModelViewProjection = projectionMatrix * modelViewMatrix;\n   v_texCoord = uv;\n   gl_Position =  matModelViewProjection * vec4(position, 1.0);\n}';
