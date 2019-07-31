@@ -4,7 +4,7 @@ require.d(exports, 'a', function () {
 });
 var __WEBPACK_IMPORTED_MODULE_0__engine__ = require('./Engine');
 var __WEBPACK_IMPORTED_MODULE_1__three__ = require('./three');
-var __WEBPACK_IMPORTED_MODULE_2__layer__ = require('./Layer');
+var __WEBPACK_IMPORTED_MODULE_2__layer__ = require('./ExportLayer');
 var __WEBPACK_IMPORTED_MODULE_3__base__ = require('./Base');
 var __WEBPACK_IMPORTED_MODULE_4__image__ = require('./LoadImage');
 var __WEBPACK_IMPORTED_MODULE_5__map_provider__ = require('./MapProvider');

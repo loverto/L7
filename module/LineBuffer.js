@@ -2,7 +2,7 @@
 require.d(exports, 'a', function () {
   return LineBuffer;
 });
-var __WEBPACK_IMPORTED_MODULE_0__bufferBase__ = require('./17');
+var __WEBPACK_IMPORTED_MODULE_0__bufferBase__ = require('./BufferBase');
 var __WEBPACK_IMPORTED_MODULE_1__shape__ = require('./29');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
@@ -105,31 +105,46 @@ var LineBuffer = function (_BufferBase) {
     {
       key: 'geometryBuffer',
       value: function geometryBuffer() {
+        // 设置
         var _this = this;
+        // 获取坐标
         var coordinates = this.get('coordinates');
+        // 获取geo属性
         var properties = this.get('properties');
+        // 获取图形类型
         var shapeType = this.shapeType = this.get('shapeType');
+        // 创建顶点位置信息
         var positions = [];
+        // 顶点位置索引
         var positionsIndex = [];
+        // 实例
         var instances = [];
+        // 线的类型，线
         if (shapeType === 'line') {
           this.attributes = this._getMeshLineAttributes();
           return;
+          // 弧线
         } else if (shapeType === 'arc') {
           this.attributes = this._getArcLineAttributes();
           return;
         }
+        // 遍历坐标点
         coordinates.forEach(function (geo, index) {
           var props = properties[index];
+          // 获取坐标中的属性信息
           var attrData = _this._getShape(geo, props, index);
+          //
           positions.push.apply(positions, _toConsumableArray(attrData.positions));
           positionsIndex.push.apply(positionsIndex, _toConsumableArray(attrData.indexes));
           if (attrData.hasOwnProperty('instances')) {
             instances.push.apply(instances, _toConsumableArray(attrData.instances));
           }
         });
+        // 属性样式结构
         this.bufferStruct.style = properties;
+        // 顶点位置
         this.bufferStruct.verts = positions;
+        // 位置索引
         this.bufferStruct.indexs = positionsIndex;
         if (instances.length > 0) {
           this.bufferStruct.instances = instances;
@@ -140,6 +155,7 @@ var LineBuffer = function (_BufferBase) {
     {
       key: '_getShape',
       value: function _getShape(geo, props, index) {
+        // 获取形状
         if (!this.shapeType) {
           return __WEBPACK_IMPORTED_MODULE_1__shape__['a'].defaultLine(geo, index);
         }
@@ -226,20 +242,29 @@ var LineBuffer = function (_BufferBase) {
     {
       key: '_toAttributes',
       value: function _toAttributes(bufferStruct) {
+        // 转换成符合three结构的数据
         var vertCount = bufferStruct.verts.length;
+        // 顶点转换
         var vertices = new Float32Array(vertCount * 3);
+        // 顶点
         var inposs = new Float32Array(vertCount * 4);
+        // 颜色
         var colors = new Float32Array(vertCount * 4);
+        // 设置值
         for (var i = 0; i < vertCount; i++) {
+
           var index = bufferStruct.indexs[i];
           var color = bufferStruct.style[index].color;
+          // 设置结构点
           vertices[i * 3] = bufferStruct.verts[i][0];
           vertices[i * 3 + 1] = bufferStruct.verts[i][1];
           vertices[i * 3 + 2] = bufferStruct.verts[i][2];
+          // 设置颜色点
           colors[i * 4] = color[0];
           colors[i * 4 + 1] = color[1];
           colors[i * 4 + 2] = color[2];
           colors[i * 4 + 3] = color[3];
+
           if (bufferStruct.instances) {
             inposs[i * 4] = bufferStruct.instances[i][0];
             inposs[i * 4 + 1] = bufferStruct.instances[i][1];

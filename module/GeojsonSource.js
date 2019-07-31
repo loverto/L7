@@ -1,9 +1,15 @@
 'use strict';
 require.d(exports, 'a', function () {
-  return ImageSource;
+  return GeojsonSource;
 });
-var __WEBPACK_IMPORTED_MODULE_0__core_source__ = require('./23');
-var __WEBPACK_IMPORTED_MODULE_1__util_ajax__ = require('./38');
+var __WEBPACK_IMPORTED_MODULE_0__core_source__ = require('./Source');
+var __WEBPACK_IMPORTED_MODULE_1__turf_meta__ = require('./66');
+var __WEBPACK_IMPORTED_MODULE_1__turf_meta___default = require.n(__WEBPACK_IMPORTED_MODULE_1__turf_meta__);
+var __WEBPACK_IMPORTED_MODULE_2__turf_clean_coords__ = require('./268');
+var __WEBPACK_IMPORTED_MODULE_2__turf_clean_coords___default = require.n(__WEBPACK_IMPORTED_MODULE_2__turf_clean_coords__);
+var __WEBPACK_IMPORTED_MODULE_3__turf_invariant__ = require('./67');
+var __WEBPACK_IMPORTED_MODULE_3__turf_invariant___default = require.n(__WEBPACK_IMPORTED_MODULE_3__turf_invariant__);
+var __WEBPACK_IMPORTED_MODULE_4__geo_featureIndex__ = require('./68');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
@@ -77,54 +83,54 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var ImageSource = function (_Source) {
-  _inherits(ImageSource, _Source);
-  function ImageSource() {
-    _classCallCheck(this, ImageSource);
-    return _possibleConstructorReturn(this, _getPrototypeOf(ImageSource).apply(this, arguments));
+var GeojsonSource = function (_Source) {
+  _inherits(GeojsonSource, _Source);
+  function GeojsonSource() {
+    _classCallCheck(this, GeojsonSource);
+    return _possibleConstructorReturn(this, _getPrototypeOf(GeojsonSource).apply(this, arguments));
   }
-  _createClass(ImageSource, [
+  _createClass(GeojsonSource, [
     {
       key: 'prepareData',
       value: function prepareData() {
-        this.type = 'image';
-        var extent = this.get('extent');
-        var lb = this._coorConvert(extent.slice(0, 2));
-        var tr = this._coorConvert(extent.slice(2, 4));
-        this.geoData = [
-          lb,
-          tr
-        ];
+        var _this = this;
+        this.type = 'geojson';
+        var data = this.get('data');
         this.propertiesData = [];
-        this._loadData();
+        this.geoData = [];
+        __WEBPACK_IMPORTED_MODULE_1__turf_meta__['flattenEach'](data, function (currentFeature, featureIndex) {
+          var coord = Object(__WEBPACK_IMPORTED_MODULE_3__turf_invariant__['getCoords'])(__WEBPACK_IMPORTED_MODULE_2__turf_clean_coords___default()(currentFeature));
+          _this.geoData.push(_this._coordProject(coord));
+          currentFeature.properties._id = featureIndex + 1;
+          _this.propertiesData.push(currentFeature.properties);
+        });
       }
     },
     {
-      key: '_loadData',
-      value: function _loadData() {
-        var _this = this;
-        var url = this.get('data');
-        this.image = [];
-        if (typeof url === 'string') {
-          Object(__WEBPACK_IMPORTED_MODULE_1__util_ajax__['a'])({ url: url }, function (err, img) {
-            _this.image = img;
-            _this.emit('imageLoaded');
-          });
-        } else {
-          var imageCount = url.length;
-          var imageindex = 0;
-          url.forEach(function (item) {
-            Object(__WEBPACK_IMPORTED_MODULE_1__util_ajax__['a'])({ url: item }, function (err, img) {
-              imageindex++;
-              _this.image.push(img);
-              if (imageindex === imageCount) {
-                _this.emit('imageLoaded');
-              }
-            });
-          });
-        }
+      key: 'featureIndex',
+      value: function featureIndex() {
+        var data = this.get('data');
+        this.featureIndex = new __WEBPACK_IMPORTED_MODULE_4__geo_featureIndex__['a'](data);
+      }
+    },
+    {
+      key: 'getSelectFeatureId',
+      value: function getSelectFeatureId(featureId) {
+        var data = this.get('data');
+        var selectFeatureIds = [];
+        var featureStyleId = 0;
+        __WEBPACK_IMPORTED_MODULE_1__turf_meta__['flattenEach'](data, function (currentFeature, featureIndex) {
+          if (featureIndex === featureId) {
+            selectFeatureIds.push(featureStyleId);
+          }
+          featureStyleId++;
+          if (featureIndex > featureId) {
+            return;
+          }
+        });
+        return selectFeatureIds;
       }
     }
   ]);
-  return ImageSource;
+  return GeojsonSource;
 }(__WEBPACK_IMPORTED_MODULE_0__core_source__['a']);

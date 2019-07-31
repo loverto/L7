@@ -3,7 +3,7 @@ require.d(exports, 'a', function () {
   return PolygonBuffer;
 });
 var __WEBPACK_IMPORTED_MODULE_0__shape__ = require('./29');
-var __WEBPACK_IMPORTED_MODULE_1__bufferBase__ = require('./17');
+var __WEBPACK_IMPORTED_MODULE_1__bufferBase__ = require('./BufferBase');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {

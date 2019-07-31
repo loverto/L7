@@ -192,8 +192,12 @@ function arc(geo, props, positionsIndex) {
   };
 }
 function defaultLine(geo, index) {
+  // 默认的线
+  //下标索引
   var indexArray = [];
+  // 位置
   var positions = [];
+  //
   geo.slice(0, geo.length - 1).forEach(function (coor, i) {
     positions.push(coor, geo[i + 1]);
     indexArray.push(index, index);

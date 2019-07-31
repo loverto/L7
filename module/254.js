@@ -50,7 +50,7 @@
     return require;
   }([
     function (module, exports, require) {
-      var isObject = require('./16');
+      var isObject = require('./Material');
       var isArray = require('./1');
       var each = function each(elements, func) {
         if (!elements) {
@@ -1289,7 +1289,7 @@
       var DOMUtil = require('./41');
       var arrayUtil = require('./53');
       var eventUtil = require('./67');
-      var formatUtil = require('./70');
+      var formatUtil = require('./ImageSource');
       var mathUtil = require('./74');
       var matrixUtil = require('./88');
       var objectUtil = require('./95');
@@ -1538,7 +1538,7 @@
     function (module, exports, require) {
       var isFunction = require('./three');
       var isPlainObject = require('./7');
-      var isMatch = require('./17');
+      var isMatch = require('./BufferBase');
       function find(arr, predicate) {
         var _predicate = void 0;
         if (isFunction(predicate)) {
@@ -1790,7 +1790,7 @@
     function (module, exports, require) {
       module.exports = {
         getWrapBehavior: require('./68'),
-        wrapBehavior: require('./69')
+        wrapBehavior: require('./CSVSource')
       };
     },
     function (module, exports) {
@@ -1901,7 +1901,7 @@
     function (module, exports, require) {
       var isNumberEqual = require('./75');
       module.exports = {
-        clamp: require('./21'),
+        clamp: require('./Layer'),
         fixedBase: require('./76'),
         isDecimal: require('./index'),
         isEven: require('./Scene'),
@@ -2068,7 +2068,7 @@
     },
     function (module, exports, require) {
       module.exports = {
-        mat3: require('./23'),
+        mat3: require('./Source'),
         vec2: require('./90'),
         vec3: require('./92'),
         transform: require('./94')
@@ -2523,7 +2523,7 @@
     },
     function (module, exports, require) {
       var vec2 = require('./91');
-      var clamp = require('./21');
+      var clamp = require('./Layer');
       vec2.angle = function (v1, v2) {
         var theta = vec2.dot(v1, v2) / (vec2.length(v1) * vec2.length(v2));
         return Math.acos(clamp(theta, -1, 1));
@@ -3252,7 +3252,7 @@
     function (module, exports, require) {
       var clone = require('./24');
       var each = require('./0');
-      var mat3 = require('./23');
+      var mat3 = require('./Source');
       module.exports = function transform(m, ts) {
         m = clone(m);
         each(ts, function (t) {
@@ -3289,7 +3289,7 @@
         hasKey: require('./97'),
         hasValue: require('./98'),
         keys: require('./18'),
-        isMatch: require('./17'),
+        isMatch: require('./BufferBase'),
         values: require('./26')
       };
     },
@@ -4214,7 +4214,7 @@
         isNil: require('./5'),
         isNull: require('./113'),
         isNumber: require('./6'),
-        isObject: require('./16'),
+        isObject: require('./Material'),
         isObjectLike: require('./13'),
         isPlainObject: require('./7'),
         isPrototype: require('./36'),

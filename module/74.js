@@ -4,7 +4,7 @@ var __WEBPACK_IMPORTED_MODULE_0__shader_polygon_frag_glsl__ = require('./297');
 var __WEBPACK_IMPORTED_MODULE_0__shader_polygon_frag_glsl___default = require.n(__WEBPACK_IMPORTED_MODULE_0__shader_polygon_frag_glsl__);
 var __WEBPACK_IMPORTED_MODULE_1__shader_polygon_vert_glsl__ = require('./298');
 var __WEBPACK_IMPORTED_MODULE_1__shader_polygon_vert_glsl___default = require.n(__WEBPACK_IMPORTED_MODULE_1__shader_polygon_vert_glsl__);
-var __WEBPACK_IMPORTED_MODULE_2__material__ = require('./16');
+var __WEBPACK_IMPORTED_MODULE_2__material__ = require('./Material');
 function PolygonMaterial(options) {
   var material = new __WEBPACK_IMPORTED_MODULE_2__material__['a']({
     uniforms: {

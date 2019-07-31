@@ -2,7 +2,7 @@
 require.d(exports, 'a', function () {
   return PointLayer;
 });
-var __WEBPACK_IMPORTED_MODULE_0__core_layer__ = require('./21');
+var __WEBPACK_IMPORTED_MODULE_0__core_layer__ = require('./Layer');
 var __WEBPACK_IMPORTED_MODULE_1__core_three__ = require('./three');
 var __WEBPACK_IMPORTED_MODULE_2__geom_buffer_point__ = require('./76');
 var __WEBPACK_IMPORTED_MODULE_3__geom_material_pointMaterial__ = require('./308');

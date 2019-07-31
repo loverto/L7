@@ -2,7 +2,7 @@
 require.d(exports, 'a', function () {
   return TextBuffer;
 });
-var __WEBPACK_IMPORTED_MODULE_0__bufferBase__ = require('./17');
+var __WEBPACK_IMPORTED_MODULE_0__bufferBase__ = require('./BufferBase');
 var __WEBPACK_IMPORTED_MODULE_1__util_ajax__ = require('./38');
 var __WEBPACK_IMPORTED_MODULE_2__core_three__ = require('./three');
 var __WEBPACK_IMPORTED_MODULE_3__global__ = require('./Global');

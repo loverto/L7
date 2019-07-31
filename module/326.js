@@ -2,7 +2,7 @@
 require.d(exports, 'a', function () {
   return RasterLayer;
 });
-var __WEBPACK_IMPORTED_MODULE_0__core_layer__ = require('./21');
+var __WEBPACK_IMPORTED_MODULE_0__core_layer__ = require('./Layer');
 var __WEBPACK_IMPORTED_MODULE_1__core_three__ = require('./three');
 var __WEBPACK_IMPORTED_MODULE_2__source_rasterSource__ = require('./327');
 var __WEBPACK_IMPORTED_MODULE_3__geom_material_rasterMaterial__ = require('./328');

@@ -2,7 +2,7 @@
 require.d(exports, 'a', function () {
   return RasterBuffer;
 });
-var __WEBPACK_IMPORTED_MODULE_0__bufferBase__ = require('./17');
+var __WEBPACK_IMPORTED_MODULE_0__bufferBase__ = require('./BufferBase');
 var __WEBPACK_IMPORTED_MODULE_1__attr_colorscales__ = require('./332');
 var __WEBPACK_IMPORTED_MODULE_2__core_three__ = require('./three');
 function _typeof(obj) {

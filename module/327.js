@@ -2,7 +2,7 @@
 require.d(exports, 'a', function () {
   return RasterSource;
 });
-var __WEBPACK_IMPORTED_MODULE_0__core_source__ = require('./23');
+var __WEBPACK_IMPORTED_MODULE_0__core_source__ = require('./Source');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
