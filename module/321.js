@@ -3,7 +3,7 @@ require.d(exports, 'a', function () {
   return imageLayer;
 });
 var __WEBPACK_IMPORTED_MODULE_0__core_layer__ = require('./21');
-var __WEBPACK_IMPORTED_MODULE_1__core_three__ = require('./2');
+var __WEBPACK_IMPORTED_MODULE_1__core_three__ = require('./three');
 var __WEBPACK_IMPORTED_MODULE_2__source_imageSource__ = require('./70');
 var __WEBPACK_IMPORTED_MODULE_3__geom_buffer_image__ = require('./322');
 var __WEBPACK_IMPORTED_MODULE_4__geom_material_imageMaterial__ = require('./323');

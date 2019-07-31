@@ -2,7 +2,7 @@
 require.d(exports, 'a', function () {
   return Camera;
 });
-var __WEBPACK_IMPORTED_MODULE_0__three__ = require('./2');
+var __WEBPACK_IMPORTED_MODULE_0__three__ = require('./three');
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError('Cannot call a class as a function');

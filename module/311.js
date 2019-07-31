@@ -4,8 +4,8 @@ require.d(exports, 'a', function () {
 });
 var __WEBPACK_IMPORTED_MODULE_0__bufferBase__ = require('./17');
 var __WEBPACK_IMPORTED_MODULE_1__util_ajax__ = require('./38');
-var __WEBPACK_IMPORTED_MODULE_2__core_three__ = require('./2');
-var __WEBPACK_IMPORTED_MODULE_3__global__ = require('./20');
+var __WEBPACK_IMPORTED_MODULE_2__core_three__ = require('./three');
+var __WEBPACK_IMPORTED_MODULE_3__global__ = require('./Global');
 var __WEBPACK_IMPORTED_MODULE_3__global___default = require.n(__WEBPACK_IMPORTED_MODULE_3__global__);
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {

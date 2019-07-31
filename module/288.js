@@ -4,7 +4,7 @@ exports['meshLine'] = meshLine;
 exports['arc'] = arc;
 exports['defaultLine'] = defaultLine;
 exports['Line'] = Line;
-var __WEBPACK_IMPORTED_MODULE_0__core_three__ = require('./2');
+var __WEBPACK_IMPORTED_MODULE_0__core_three__ = require('./three');
 var __WEBPACK_IMPORTED_MODULE_1_polyline_normals__ = require('./289');
 var __WEBPACK_IMPORTED_MODULE_1_polyline_normals___default = require.n(__WEBPACK_IMPORTED_MODULE_1_polyline_normals__);
 function isNativeReflectConstruct() {

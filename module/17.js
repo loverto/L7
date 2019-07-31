@@ -2,8 +2,8 @@
 require.d(exports, 'a', function () {
   return BufferBase;
 });
-var __WEBPACK_IMPORTED_MODULE_0__core_base__ = require('./22');
-var __WEBPACK_IMPORTED_MODULE_1__core_three__ = require('./2');
+var __WEBPACK_IMPORTED_MODULE_0__core_base__ = require('./Base');
+var __WEBPACK_IMPORTED_MODULE_1__core_three__ = require('./three');
 var __WEBPACK_IMPORTED_MODULE_2__normals__ = require('./296');
 var __WEBPACK_IMPORTED_MODULE_3__extrude__ = require('./73');
 function _typeof(obj) {

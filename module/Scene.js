@@ -2,14 +2,14 @@
 require.d(exports, 'a', function () {
   return Scene;
 });
-var __WEBPACK_IMPORTED_MODULE_0__engine__ = require('./79');
-var __WEBPACK_IMPORTED_MODULE_1__three__ = require('./2');
-var __WEBPACK_IMPORTED_MODULE_2__layer__ = require('./252');
-var __WEBPACK_IMPORTED_MODULE_3__base__ = require('./22');
-var __WEBPACK_IMPORTED_MODULE_4__image__ = require('./333');
-var __WEBPACK_IMPORTED_MODULE_5__map_provider__ = require('./334');
-var __WEBPACK_IMPORTED_MODULE_6__map_gaodeMap__ = require('./338');
-var __WEBPACK_IMPORTED_MODULE_7__global__ = require('./20');
+var __WEBPACK_IMPORTED_MODULE_0__engine__ = require('./Engine');
+var __WEBPACK_IMPORTED_MODULE_1__three__ = require('./three');
+var __WEBPACK_IMPORTED_MODULE_2__layer__ = require('./Layer');
+var __WEBPACK_IMPORTED_MODULE_3__base__ = require('./Base');
+var __WEBPACK_IMPORTED_MODULE_4__image__ = require('./LoadImage');
+var __WEBPACK_IMPORTED_MODULE_5__map_provider__ = require('./MapProvider');
+var __WEBPACK_IMPORTED_MODULE_6__map_gaodeMap__ = require('./GaodeMap');
+var __WEBPACK_IMPORTED_MODULE_7__global__ = require('./Global');
 var __WEBPACK_IMPORTED_MODULE_7__global___default = require.n(__WEBPACK_IMPORTED_MODULE_7__global__);
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {

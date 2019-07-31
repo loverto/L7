@@ -267,7 +267,7 @@
     },
     function (module, exports, require) {
       var each = require('./0');
-      var isFunction = require('./2');
+      var isFunction = require('./three');
       var keys = Object.keys ? function (obj) {
         return Object.keys(obj);
       } : function (obj) {
@@ -391,7 +391,7 @@
     },
     function (module, exports, require) {
       var each = require('./0');
-      var isFunction = require('./2');
+      var isFunction = require('./three');
       var values = Object.values ? function (obj) {
         return Object.values(obj);
       } : function (obj) {
@@ -1193,7 +1193,7 @@
       module.exports = isPrototype;
     },
     function (module, exports, require) {
-      var isFunction = require('./2');
+      var isFunction = require('./three');
       var isArray = require('./1');
       var groupBy = require('./38');
       var groupToMap = function groupToMap(data, condition) {
@@ -1520,7 +1520,7 @@
         remove: require('./63'),
         sortBy: require('./64'),
         union: require('./65'),
-        uniq: require('./20'),
+        uniq: require('./Global'),
         valuesOfKey: require('./66')
       };
     },
@@ -1536,7 +1536,7 @@
       module.exports = difference;
     },
     function (module, exports, require) {
-      var isFunction = require('./2');
+      var isFunction = require('./three');
       var isPlainObject = require('./7');
       var isMatch = require('./17');
       function find(arr, predicate) {
@@ -1715,7 +1715,7 @@
     },
     function (module, exports, require) {
       var isString = require('./10');
-      var isFunction = require('./2');
+      var isFunction = require('./three');
       var isArray = require('./1');
       function sortBy(arr, key) {
         var comparer = void 0;
@@ -1751,7 +1751,7 @@
     function (module, exports, require) {
       var each = require('./0');
       var toArray = require('./14');
-      var uniq = require('./20');
+      var uniq = require('./Global');
       var union = function union() {
         var result = [];
         var sources = toArray(arguments);
@@ -1903,9 +1903,9 @@
       module.exports = {
         clamp: require('./21'),
         fixedBase: require('./76'),
-        isDecimal: require('./77'),
-        isEven: require('./78'),
-        isInteger: require('./79'),
+        isDecimal: require('./index'),
+        isEven: require('./Scene'),
+        isInteger: require('./Engine'),
         isNegative: require('./80'),
         isNumberEqual: isNumberEqual,
         isOdd: require('./81'),
@@ -1915,8 +1915,8 @@
         mod: require('./85'),
         snapEqual: isNumberEqual,
         toDegree: require('./86'),
-        toInt: require('./22'),
-        toInteger: require('./22'),
+        toInt: require('./Base'),
+        toInteger: require('./Base'),
         toRadian: require('./87')
       };
     },
@@ -1986,7 +1986,7 @@
     },
     function (module, exports, require) {
       var isArray = require('./1');
-      var isFunction = require('./2');
+      var isFunction = require('./three');
       var each = require('./0');
       var maxBy = function maxBy(arr, fn) {
         if (!isArray(arr)) {
@@ -2017,7 +2017,7 @@
     },
     function (module, exports, require) {
       var isArray = require('./1');
-      var isFunction = require('./2');
+      var isFunction = require('./three');
       var each = require('./0');
       var minBy = function minBy(arr, fn) {
         if (!isArray(arr)) {
@@ -4210,7 +4210,7 @@
         isArray: require('./1'),
         isArrayLike: require('./3'),
         isBoolean: require('./112'),
-        isFunction: require('./2'),
+        isFunction: require('./three'),
         isNil: require('./5'),
         isNull: require('./113'),
         isNumber: require('./6'),
@@ -4261,7 +4261,7 @@
       module.exports = isRegExp;
     },
     function (module, exports, require) {
-      var isFunction = require('./2');
+      var isFunction = require('./three');
       var toArray = require('./14');
       var mix = require('./11');
       var augment = function augment(c) {
@@ -4319,7 +4319,7 @@
       module.exports = deepMix;
     },
     function (module, exports, require) {
-      var isFunction = require('./2');
+      var isFunction = require('./three');
       var mix = require('./11');
       var extend = function extend(subclass, superclass, overrides, staticOverrides) {
         if (!isFunction(superclass)) {
@@ -4413,7 +4413,7 @@
       module.exports = isEmpty;
     },
     function (module, exports, require) {
-      var isFunction = require('./2');
+      var isFunction = require('./three');
       var isEqual = require('./39');
       var isEqualWith = function isEqualWith(value, other, fn) {
         if (!isFunction(fn)) {

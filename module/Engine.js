@@ -4,7 +4,7 @@ require.d(exports, 'a', function () {
 });
 var __WEBPACK_IMPORTED_MODULE_0_wolfy87_eventemitter__ = require('./30');
 var __WEBPACK_IMPORTED_MODULE_0_wolfy87_eventemitter___default = require.n(__WEBPACK_IMPORTED_MODULE_0_wolfy87_eventemitter__);
-var __WEBPACK_IMPORTED_MODULE_1__three__ = require('./2');
+var __WEBPACK_IMPORTED_MODULE_1__three__ = require('./three');
 var __WEBPACK_IMPORTED_MODULE_2__scene__ = require('./247');
 var __WEBPACK_IMPORTED_MODULE_3__camera__ = require('./248');
 var __WEBPACK_IMPORTED_MODULE_4__renderer__ = require('./249');

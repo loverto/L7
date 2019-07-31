@@ -2,7 +2,7 @@
 require.d(exports, 'a', function () {
   return Material;
 });
-var __WEBPACK_IMPORTED_MODULE_0__core_three__ = require('./2');
+var __WEBPACK_IMPORTED_MODULE_0__core_three__ = require('./three');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {

@@ -2,11 +2,11 @@
 require.d(exports, 'a', function () {
   return MapProvider;
 });
-var __WEBPACK_IMPORTED_MODULE_0__core_base__ = require('./22');
+var __WEBPACK_IMPORTED_MODULE_0__core_base__ = require('./Base');
 var __WEBPACK_IMPORTED_MODULE_1__theme_index__ = require('./335');
 var __WEBPACK_IMPORTED_MODULE_2__util__ = require('./1');
 var __WEBPACK_IMPORTED_MODULE_2__util___default = require.n(__WEBPACK_IMPORTED_MODULE_2__util__);
-var __WEBPACK_IMPORTED_MODULE_3__global__ = require('./20');
+var __WEBPACK_IMPORTED_MODULE_3__global__ = require('./Global');
 var __WEBPACK_IMPORTED_MODULE_3__global___default = require.n(__WEBPACK_IMPORTED_MODULE_3__global__);
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {

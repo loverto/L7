@@ -2,8 +2,8 @@
 require.d(exports, 'a', function () {
   return Layer;
 });
-var __WEBPACK_IMPORTED_MODULE_0__base__ = require('./22');
-var __WEBPACK_IMPORTED_MODULE_1__three__ = require('./2');
+var __WEBPACK_IMPORTED_MODULE_0__base__ = require('./Base');
+var __WEBPACK_IMPORTED_MODULE_1__three__ = require('./three');
 var __WEBPACK_IMPORTED_MODULE_2__attr_color_util__ = require('./35');
 var __WEBPACK_IMPORTED_MODULE_2__attr_color_util___default = require.n(__WEBPACK_IMPORTED_MODULE_2__attr_color_util__);
 var __WEBPACK_IMPORTED_MODULE_3__source_index__ = require('./255');
@@ -128,7 +128,7 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var Global = require('./20');
+var Global = require('./Global');
 var id = 1;
 function parseFields(field) {
   if (__WEBPACK_IMPORTED_MODULE_6__util___default.a.isArray(field)) {

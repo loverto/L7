@@ -3,7 +3,7 @@ require.d(exports, 'a', function () {
   return LineLayer;
 });
 var __WEBPACK_IMPORTED_MODULE_0__core_layer__ = require('./21');
-var __WEBPACK_IMPORTED_MODULE_1__core_three__ = require('./2');
+var __WEBPACK_IMPORTED_MODULE_1__core_three__ = require('./three');
 var __WEBPACK_IMPORTED_MODULE_2__geom_buffer_index__ = require('./318');
 var __WEBPACK_IMPORTED_MODULE_3__geom_material_lineMaterial__ = require('./75');
 function _typeof(obj) {
