@@ -4,8 +4,8 @@ require.d(exports, 'a', function () {
 });
 var __WEBPACK_IMPORTED_MODULE_0__core_three__ = require('./three');
 var __WEBPACK_IMPORTED_MODULE_1__core_layer__ = require('./Layer');
-var __WEBPACK_IMPORTED_MODULE_2__geom_buffer_polygon__ = require('./71');
-var __WEBPACK_IMPORTED_MODULE_3__geom_material_polygonMaterial__ = require('./74');
+var __WEBPACK_IMPORTED_MODULE_2__geom_buffer_polygon__ = require('./PolygonBuffer');
+var __WEBPACK_IMPORTED_MODULE_3__geom_material_polygonMaterial__ = require('./PolygonMaterial');
 var __WEBPACK_IMPORTED_MODULE_4__geom_material_lineMaterial__ = require('./75');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {

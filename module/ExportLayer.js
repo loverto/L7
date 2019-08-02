@@ -1,6 +1,6 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
-var __WEBPACK_IMPORTED_MODULE_0__polygonLayer__ = require('./253');
+var __WEBPACK_IMPORTED_MODULE_0__polygonLayer__ = require('./PolygonLayer');
 require.d(exports, 'PolygonLayer', function () {
   return __WEBPACK_IMPORTED_MODULE_0__polygonLayer__['a'];
 });

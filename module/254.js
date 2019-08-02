@@ -1290,7 +1290,7 @@
       var arrayUtil = require('./53');
       var eventUtil = require('./67');
       var formatUtil = require('./ImageSource');
-      var mathUtil = require('./74');
+      var mathUtil = require('./PolygonMaterial');
       var matrixUtil = require('./88');
       var objectUtil = require('./95');
       var pathUtil = require('./99');
@@ -1813,7 +1813,7 @@
       module.exports = wrapBehavior;
     },
     function (module, exports, require) {
-      var number2color = require('./71');
+      var number2color = require('./PolygonBuffer');
       module.exports = {
         number2color: number2color,
         numberToColor: number2color,
