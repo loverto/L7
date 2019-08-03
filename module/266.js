@@ -97,7 +97,7 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 var Linear = require('./28');
-var Util = require('./1');
+var Util = require('./Util');
 function calBase(a, b) {
   var e = Math.E;
   var value = Math.pow(e, Math.log(b) / a);

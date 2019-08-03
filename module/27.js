@@ -20,7 +20,7 @@ function _createClass(Constructor, protoProps, staticProps) {
     _defineProperties(Constructor, staticProps);
   return Constructor;
 }
-var Util = require('./1');
+var Util = require('./Util');
 var Scale = function () {
   _createClass(Scale, [{
       key: 'getDefaultCfg',

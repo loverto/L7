@@ -2,7 +2,7 @@
 require.d(exports, 'a', function () {
   return Material;
 });
-var __WEBPACK_IMPORTED_MODULE_0__core_three__ = require('./three');
+var core_three = require('./three');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
@@ -124,4 +124,4 @@ var Material = function (_THREE$ShaderMaterial) {
     }
   ]);
   return Material;
-}(__WEBPACK_IMPORTED_MODULE_0__core_three__['ShaderMaterial']);
+}(core_three['ShaderMaterial']);

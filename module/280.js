@@ -72,7 +72,7 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 var Base = require('./12');
-var Util = require('./1');
+var Util = require('./Util');
 var Size = function (_Base) {
   _inherits(Size, _Base);
   function Size(cfg) {

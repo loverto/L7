@@ -1,4 +1,4 @@
-var Util = require('./1');
+var Util = require('./Util');
 var MAX_COUNT = 8;
 var SUB_COUNT = 4;
 function getSimpleArray(data) {

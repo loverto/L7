@@ -1,4 +1,4 @@
-var Util = require('./1');
+var Util = require('./Util');
 module.exports = {
   toTimeStamp: function toTimeStamp(value) {
     if (Util.isString(value)) {

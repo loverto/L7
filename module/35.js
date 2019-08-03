@@ -1,4 +1,4 @@
-var Util = require('./1');
+var Util = require('./Util');
 var RGB_REG = /rgba?\(([\s.,0-9]+)\)/;
 function createTmp() {
   var i = document.createElement('i');

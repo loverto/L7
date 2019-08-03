@@ -4,7 +4,7 @@ exports['fill'] = fill;
 exports['extrude'] = extrude;
 exports['line'] = line;
 exports['extrudeline'] = extrudeline;
-var __WEBPACK_IMPORTED_MODULE_0__extrude__ = require('./73');
+var __WEBPACK_IMPORTED_MODULE_0__extrude__ = require('./Extrude');
 function fill(points) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__extrude__['a'])(points, false);
 }

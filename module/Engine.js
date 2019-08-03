@@ -2,9 +2,9 @@
 require.d(exports, 'a', function () {
   return Engine;
 });
-var __WEBPACK_IMPORTED_MODULE_0_wolfy87_eventemitter__ = require('./30');
-var __WEBPACK_IMPORTED_MODULE_0_wolfy87_eventemitter___default = require.n(__WEBPACK_IMPORTED_MODULE_0_wolfy87_eventemitter__);
-var __WEBPACK_IMPORTED_MODULE_1__three__ = require('./three');
+var wolfy87_eventemitter__ = require('./EventEmitter');
+var wolfy87_eventemitter___default = require.n(wolfy87_eventemitter__);
+var three = require('./three');
 var __WEBPACK_IMPORTED_MODULE_2__scene__ = require('./247');
 var __WEBPACK_IMPORTED_MODULE_3__camera__ = require('./248');
 var __WEBPACK_IMPORTED_MODULE_4__renderer__ = require('./249');
@@ -93,7 +93,7 @@ var Engine = function (_EventEmitter) {
     _this._renderer = new __WEBPACK_IMPORTED_MODULE_4__renderer__['a'](container).renderer;
     _this._world = world;
     _this._picking = Object(__WEBPACK_IMPORTED_MODULE_5__picking_picking__['a'])(_this._world, _this._renderer, _this._camera, _this._scene);
-    _this.clock = new __WEBPACK_IMPORTED_MODULE_1__three__['Clock']();
+    _this.clock = new three['Clock']();
     return _this;
   }
   _createClass(Engine, [
@@ -128,4 +128,4 @@ var Engine = function (_EventEmitter) {
     }
   ]);
   return Engine;
-}(__WEBPACK_IMPORTED_MODULE_0_wolfy87_eventemitter___default.a);
+}(wolfy87_eventemitter___default.a);

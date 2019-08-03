@@ -6,7 +6,7 @@ var __WEBPACK_IMPORTED_MODULE_0__core_three__ = require('./three');
 var __WEBPACK_IMPORTED_MODULE_1__core_layer__ = require('./Layer');
 var __WEBPACK_IMPORTED_MODULE_2__geom_buffer_polygon__ = require('./PolygonBuffer');
 var __WEBPACK_IMPORTED_MODULE_3__geom_material_polygonMaterial__ = require('./PolygonMaterial');
-var __WEBPACK_IMPORTED_MODULE_4__geom_material_lineMaterial__ = require('./75');
+var __WEBPACK_IMPORTED_MODULE_4__geom_material_lineMaterial__ = require('./geom.material.LineMaterial');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
@@ -90,6 +90,7 @@ var PolygonLayer = function (_Layer) {
     {
       key: 'shape',
       value: function shape(type) {
+        // 指定形状
         this.shape = type;
         return this;
       }

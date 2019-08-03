@@ -2,10 +2,10 @@
 require.d(exports, 'a', function () {
   return LineLayer;
 });
-var __WEBPACK_IMPORTED_MODULE_0__core_layer__ = require('./Layer');
-var __WEBPACK_IMPORTED_MODULE_1__core_three__ = require('./three');
-var __WEBPACK_IMPORTED_MODULE_2__geom_buffer_index__ = require('./GeomBufferIndex');
-var __WEBPACK_IMPORTED_MODULE_3__geom_material_lineMaterial__ = require('./75');
+var core_layer = require('./Layer');
+var core_three = require('./three');
+var geom_buffer_index = require('./GeomBufferIndex');
+var geom_material_lineMaterial = require('./geom.material.LineMaterial');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
@@ -108,7 +108,7 @@ var LineLayer = function (_Layer) {
         // 获取样式选项
         var style = this.get('styleOptions');
         // 创建buffer
-        var buffer = this._buffer = new __WEBPACK_IMPORTED_MODULE_2__geom_buffer_index__['a']({
+        var buffer = this._buffer = new geom_buffer_index['a']({
           coordinates: source.geoData,
           properties: StyleData,
           shapeType: this.shapeType,
@@ -118,60 +118,60 @@ var LineLayer = function (_Layer) {
         // 获取动画选项
         var animateOptions = this.get('animateOptions');
         // 准备生成几何体
-        var geometry = new __WEBPACK_IMPORTED_MODULE_1__core_three__['BufferGeometry']();
+        var geometry = new core_three['BufferGeometry']();
         // 设置几何体属性
         var attributes = buffer.attributes;
         // 弧线
         if (this.shapeType === 'arc') {
           geometry.setIndex(attributes.indexArray);
-          geometry.addAttribute('position', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.positions, 3));
-          geometry.addAttribute('a_color', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.colors, 4));
-          geometry.addAttribute('a_instance', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.instances, 4));
-          geometry.addAttribute('a_size', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.sizes, 1));
-          var material = new __WEBPACK_IMPORTED_MODULE_3__geom_material_lineMaterial__['a']({
+          geometry.addAttribute('position', new core_three['Float32BufferAttribute'](attributes.positions, 3));
+          geometry.addAttribute('a_color', new core_three['Float32BufferAttribute'](attributes.colors, 4));
+          geometry.addAttribute('a_instance', new core_three['Float32BufferAttribute'](attributes.instances, 4));
+          geometry.addAttribute('a_size', new core_three['Float32BufferAttribute'](attributes.sizes, 1));
+          var material = new geom_material_lineMaterial['a']({
             u_opacity: opacity,
             u_zoom: this.scene.getZoom()
           });
-          var mesh = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Mesh'](geometry, material);
+          var mesh = new core_three['Mesh'](geometry, material);
           this.add(mesh);
           // 线
         } else if (this.shapeType === 'line') {
           geometry.setIndex(attributes.indexArray);
-          geometry.addAttribute('pickingId', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.pickingIds, 1));
+          geometry.addAttribute('pickingId', new core_three['Float32BufferAttribute'](attributes.pickingIds, 1));
           // 添加顶点位置
-          geometry.addAttribute('position', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.positions, 3));
+          geometry.addAttribute('position', new core_three['Float32BufferAttribute'](attributes.positions, 3));
           // 添加带透明颜色
-          geometry.addAttribute('a_color', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.colors, 4));
+          geometry.addAttribute('a_color', new core_three['Float32BufferAttribute'](attributes.colors, 4));
           // 添加大小
-          geometry.addAttribute('a_size', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.sizes, 1));
-          geometry.addAttribute('normal', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.normal, 3));
-          geometry.addAttribute('a_miter', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.miter, 1));
+          geometry.addAttribute('a_size', new core_three['Float32BufferAttribute'](attributes.sizes, 1));
+          geometry.addAttribute('normal', new core_three['Float32BufferAttribute'](attributes.normal, 3));
+          geometry.addAttribute('a_miter', new core_three['Float32BufferAttribute'](attributes.miter, 1));
           var lineType = style.lineType;
           var _material;
           // 不是虚线
           if (lineType !== 'dash') {
             //网格线材料
-            _material = new __WEBPACK_IMPORTED_MODULE_3__geom_material_lineMaterial__['d']({
+            _material = new geom_material_lineMaterial['d']({
               u_opacity: opacity,
               u_zoom: this.scene.getZoom()
             });
           } else {
-            geometry.addAttribute('a_distance', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.attrDistance, 1));
+            geometry.addAttribute('a_distance', new core_three['Float32BufferAttribute'](attributes.attrDistance, 1));
             // 虚线材料
-            _material = new __WEBPACK_IMPORTED_MODULE_3__geom_material_lineMaterial__['b']({
+            _material = new geom_material_lineMaterial['b']({
               u_opacity: opacity,
               u_zoom: this.scene.getZoom()
             });
           }
-          var _mesh = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Mesh'](geometry, _material);
+          var _mesh = new core_three['Mesh'](geometry, _material);
           this.add(_mesh);
         } else {
           // 如果都不是，那就用默认的
-          geometry.addAttribute('position', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.vertices, 3));
+          geometry.addAttribute('position', new core_three['Float32BufferAttribute'](attributes.vertices, 3));
           // 设置线的颜色
-          geometry.addAttribute('a_color', new __WEBPACK_IMPORTED_MODULE_1__core_three__['Float32BufferAttribute'](attributes.colors, 4));
+          geometry.addAttribute('a_color', new core_three['Float32BufferAttribute'](attributes.colors, 4));
           // 线材料
-          var _material2 = new __WEBPACK_IMPORTED_MODULE_3__geom_material_lineMaterial__['c']({
+          var _material2 = new geom_material_lineMaterial['c']({
             u_opacity: opacity,
             u_time: 0
           });
@@ -181,7 +181,7 @@ var LineLayer = function (_Layer) {
             _material2.setDefinesvalue('ANIMATE', true);
           }
           // 通过线段来创建线
-          var _mesh2 = new __WEBPACK_IMPORTED_MODULE_1__core_three__['LineSegments'](geometry, _material2);
+          var _mesh2 = new core_three['LineSegments'](geometry, _material2);
           this.add(_mesh2);
         }
         return this;
@@ -189,4 +189,4 @@ var LineLayer = function (_Layer) {
     }
   ]);
   return LineLayer;
-}(__WEBPACK_IMPORTED_MODULE_0__core_layer__['a']);
+}(core_layer['a']);

@@ -51,7 +51,7 @@
   }([
     function (module, exports, require) {
       var isObject = require('./Material');
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var each = function each(elements, func) {
         if (!elements) {
           return;
@@ -355,7 +355,7 @@
       } : function (obj) {
         return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj;
       };
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var clone = function clone(obj) {
         if ((typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) !== 'object' || obj === null) {
           return obj;
@@ -512,7 +512,7 @@
       };
     },
     function (module, exports, require) {
-      var pathToAbsolute = require('./30');
+      var pathToAbsolute = require('./EventEmitter');
       var a2c = function a2c(x1, y1, rx, ry, angle, large_arc_flag, sweep_flag, x2, y2, recursive) {
         if (rx === ry) {
           rx += 1;
@@ -1194,7 +1194,7 @@
     },
     function (module, exports, require) {
       var isFunction = require('./three');
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var groupBy = require('./38');
       var groupToMap = function groupToMap(data, condition) {
         if (!condition) {
@@ -1217,7 +1217,7 @@
     },
     function (module, exports, require) {
       var each = require('./0');
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var hasOwnProperty = Object.prototype.hasOwnProperty;
       var groupBy = function groupBy(data, condition) {
         if (!condition || !isArray(data)) {
@@ -1562,7 +1562,7 @@
     },
     function (module, exports, require) {
       var isNil = require('./5');
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var firstValue = function firstValue(data, name) {
         var rst = null;
         for (var i = 0; i < data.length; i++) {
@@ -1582,7 +1582,7 @@
       module.exports = firstValue;
     },
     function (module, exports, require) {
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var each = require('./0');
       var flatten = function flatten(arr) {
         if (!isArray(arr)) {
@@ -1603,7 +1603,7 @@
       module.exports = flatten;
     },
     function (module, exports, require) {
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var flattenDeep = function flattenDeep(arr) {
         var result = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
         if (!isArray(arr)) {
@@ -1619,7 +1619,7 @@
     },
     function (module, exports, require) {
       var filter = require('./12');
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var getRange = function getRange(values) {
         values = filter(values, function (v) {
           return !isNaN(v);
@@ -1675,7 +1675,7 @@
       module.exports = pull;
     },
     function (module, exports, require) {
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var isPlainObject = require('./7');
       var each = require('./0');
       var reduce = function reduce(arr, fn, init) {
@@ -1716,7 +1716,7 @@
     function (module, exports, require) {
       var isString = require('./10');
       var isFunction = require('./three');
-      var isArray = require('./1');
+      var isArray = require('./Util');
       function sortBy(arr, key) {
         var comparer = void 0;
         if (isFunction(key)) {
@@ -1764,7 +1764,7 @@
     },
     function (module, exports, require) {
       var isNil = require('./5');
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var each = require('./0');
       module.exports = function valuesOfKey(data, name) {
         var rst = [];
@@ -1818,7 +1818,7 @@
         number2color: number2color,
         numberToColor: number2color,
         parsePath: require('./72'),
-        parseRadius: require('./73')
+        parseRadius: require('./Extrude')
       };
     },
     function (module, exports) {
@@ -1837,7 +1837,7 @@
       };
     },
     function (module, exports, require) {
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var isString = require('./10');
       var each = require('./0');
       var regexTags = /[MLHVQTCSAZ]([^MLHVQTCSAZ]*)/ig;
@@ -1868,7 +1868,7 @@
       };
     },
     function (module, exports, require) {
-      var isArray = require('./1');
+      var isArray = require('./Util');
       module.exports = function parseRadius(radius) {
         var r1 = 0, r2 = 0, r3 = 0, r4 = 0;
         if (isArray(radius)) {
@@ -1899,7 +1899,7 @@
       };
     },
     function (module, exports, require) {
-      var isNumberEqual = require('./75');
+      var isNumberEqual = require('./geom.material.LineMaterial');
       module.exports = {
         clamp: require('./Layer'),
         fixedBase: require('./76'),
@@ -1985,7 +1985,7 @@
       module.exports = isPositive;
     },
     function (module, exports, require) {
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var isFunction = require('./three');
       var each = require('./0');
       var maxBy = function maxBy(arr, fn) {
@@ -2016,7 +2016,7 @@
       module.exports = maxBy;
     },
     function (module, exports, require) {
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var isFunction = require('./three');
       var each = require('./0');
       var minBy = function minBy(arr, fn) {
@@ -3308,7 +3308,7 @@
     },
     function (module, exports, require) {
       var pathIntersection = require('./100');
-      var path2absolute = require('./30');
+      var path2absolute = require('./EventEmitter');
       var path2curve = require('./29');
       var catmullRom2Bezier = require('./32');
       module.exports = {
@@ -3329,7 +3329,7 @@
       };
     },
     function (module, exports, require) {
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var rectPath = require('./27');
       var pathTocurve = require('./29');
       var base3 = function base3(t, p1, p2, p3, p4) {
@@ -4207,7 +4207,7 @@
       var isType = require('./4');
       var checkType = {
         getType: require('./35'),
-        isArray: require('./1'),
+        isArray: require('./Util'),
         isArrayLike: require('./3'),
         isBoolean: require('./112'),
         isFunction: require('./three'),
@@ -4278,7 +4278,7 @@
     },
     function (module, exports, require) {
       var isPlainObject = require('./7');
-      var isArray = require('./1');
+      var isArray = require('./Util');
       var MAX_MIX_LEVEL = 5;
       function _deepMix(dist, src, level, maxLevel) {
         level = level || 0;

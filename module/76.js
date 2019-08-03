@@ -4,7 +4,7 @@ require.d(exports, 'a', function () {
 });
 var __WEBPACK_IMPORTED_MODULE_0__bufferBase__ = require('./BufferBase');
 var __WEBPACK_IMPORTED_MODULE_1__shape_index__ = require('./29');
-var __WEBPACK_IMPORTED_MODULE_2__util__ = require('./1');
+var __WEBPACK_IMPORTED_MODULE_2__util__ = require('./Util');
 var __WEBPACK_IMPORTED_MODULE_2__util___default = require.n(__WEBPACK_IMPORTED_MODULE_2__util__);
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {

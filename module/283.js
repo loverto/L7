@@ -71,7 +71,7 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var Util = require('./1');
+var Util = require('./Util');
 var Base = require('./12');
 var Position = function (_Base) {
   _inherits(Position, _Base);

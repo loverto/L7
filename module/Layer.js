@@ -2,16 +2,16 @@
 require.d(exports, 'a', function () {
   return Layer;
 });
-var __WEBPACK_IMPORTED_MODULE_0__base__ = require('./Base');
-var __WEBPACK_IMPORTED_MODULE_1__three__ = require('./three');
-var __WEBPACK_IMPORTED_MODULE_2__attr_color_util__ = require('./35');
-var __WEBPACK_IMPORTED_MODULE_2__attr_color_util___default = require.n(__WEBPACK_IMPORTED_MODULE_2__attr_color_util__);
-var __WEBPACK_IMPORTED_MODULE_3__source_index__ = require('./SourceManager');
-var __WEBPACK_IMPORTED_MODULE_4__core_engine_picking_pickingMaterial__ = require('./275');
-var __WEBPACK_IMPORTED_MODULE_5__attr_index__ = require('./278');
-var __WEBPACK_IMPORTED_MODULE_5__attr_index___default = require.n(__WEBPACK_IMPORTED_MODULE_5__attr_index__);
-var __WEBPACK_IMPORTED_MODULE_6__util__ = require('./1');
-var __WEBPACK_IMPORTED_MODULE_6__util___default = require.n(__WEBPACK_IMPORTED_MODULE_6__util__);
+var base = require('./Base');
+var three = require('./three');
+var attr_color_util = require('./35');
+var attr_color_util___default = require.n(attr_color_util);
+var source_index = require('./SourceManager');
+var core_engine_picking_pickingMaterial = require('./275');
+var attr_index = require('./278');
+var attr_index___default = require.n(attr_index);
+var util = require('./Util');
+var util___default = require.n(util);
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
@@ -131,10 +131,10 @@ function _setPrototypeOf(o, p) {
 var Global = require('./Global');
 var id = 1;
 function parseFields(field) {
-  if (__WEBPACK_IMPORTED_MODULE_6__util___default.a.isArray(field)) {
+  if (util___default.a.isArray(field)) {
     return field;
   }
-  if (__WEBPACK_IMPORTED_MODULE_6__util___default.a.isString(field)) {
+  if (util___default.a.isString(field)) {
     return field.split('*');
   }
   return [field];
@@ -177,8 +177,8 @@ var Layer = function (_Base) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Layer).call(this, cfg));
     _this.scene = scene;
     _this.map = scene.map;
-    _this._object3D = new __WEBPACK_IMPORTED_MODULE_1__three__['Object3D']();
-    _this._pickObject3D = new __WEBPACK_IMPORTED_MODULE_1__three__['Object3D']();
+    _this._object3D = new three['Object3D']();
+    _this._pickObject3D = new three['Object3D']();
     _this._object3D.visible = _this.get('visible');
     _this._object3D.renderOrder = _this.get('zIndex') || 0;
     var layerId = _this._getUniqueId();
@@ -238,7 +238,7 @@ var Layer = function (_Base) {
         var _cfg$type = cfg.type, type = _cfg$type === void 0 ? dataType : _cfg$type;
         cfg.data = data;
         cfg.mapType = this.get('mapType');
-        this.layerSource = new __WEBPACK_IMPORTED_MODULE_3__source_index__[type](cfg);
+        this.layerSource = new source_index[type](cfg);
         return this;
       }
     },
@@ -260,7 +260,7 @@ var Layer = function (_Base) {
         if (fields.indexOf('zoom') !== -1) {
           this._zoomScale = true;
         }
-        if (__WEBPACK_IMPORTED_MODULE_6__util___default.a.isArray(fields) && !values)
+        if (util___default.a.isArray(fields) && !values)
           values = fields;
         this._createAttrOption('size', field, values, Global.size);
         return this;
@@ -283,7 +283,7 @@ var Layer = function (_Base) {
       value: function active(enable, cfg) {
         if (enable === false) {
           this.set('allowActive', false);
-        } else if (__WEBPACK_IMPORTED_MODULE_6__util___default.a.isObject(enable)) {
+        } else if (util___default.a.isObject(enable)) {
           this.set('allowActive', true);
           this.set('activedOptions', enable);
         } else {
@@ -309,7 +309,7 @@ var Layer = function (_Base) {
           styleOptions = {};
           this.set('styleOptions', styleOptions);
         }
-        if (__WEBPACK_IMPORTED_MODULE_6__util___default.a.isObject(field)) {
+        if (util___default.a.isObject(field)) {
           cfg = field;
           field = null;
         }
@@ -318,10 +318,10 @@ var Layer = function (_Base) {
           fields = parseFields(field);
         }
         styleOptions.fields = fields;
-        __WEBPACK_IMPORTED_MODULE_6__util___default.a.assign(styleOptions, cfg);
+        util___default.a.assign(styleOptions, cfg);
         for (var item in cfg) {
           if (colorItem.indexOf(item) !== -1) {
-            styleOptions[item] = __WEBPACK_IMPORTED_MODULE_2__attr_color_util___default.a.color2RGBA(styleOptions[item]);
+            styleOptions[item] = attr_color_util___default.a.color2RGBA(styleOptions[item]);
           }
           styleOptions[item] = styleOptions[item];
         }
@@ -345,7 +345,7 @@ var Layer = function (_Base) {
           animateOptions = {};
           this.set('animateOptions', animateOptions);
         }
-        if (__WEBPACK_IMPORTED_MODULE_6__util___default.a.isObject(field)) {
+        if (util___default.a.isObject(field)) {
           cfg = field;
           field = null;
         }
@@ -354,7 +354,7 @@ var Layer = function (_Base) {
           fields = parseFields(field);
         }
         animateOptions.fields = fields;
-        __WEBPACK_IMPORTED_MODULE_6__util___default.a.assign(animateOptions, cfg);
+        util___default.a.assign(animateOptions, cfg);
         this.set('animateOptions', animateOptions);
         return this;
       }
@@ -410,7 +410,7 @@ var Layer = function (_Base) {
         attrCfg.field = field;
         // 如果cfg是函数，则设置回调函数，如果属性名不是颜色，则则赋值
         if (cfg) {
-          if (__WEBPACK_IMPORTED_MODULE_6__util___default.a.isFunction(cfg)) {
+          if (util___default.a.isFunction(cfg)) {
             attrCfg.callback = cfg;
           } else {
             attrCfg.values = cfg;
@@ -447,8 +447,8 @@ var Layer = function (_Base) {
         if (this.StyleData[selectFeatureIds[0]].hasOwnProperty('filter') && this.StyleData[selectFeatureIds[0]].filter === false) {
           return;
         }
-        var style = __WEBPACK_IMPORTED_MODULE_6__util___default.a.assign({}, this.StyleData[featureId]);
-        style.color = __WEBPACK_IMPORTED_MODULE_2__attr_color_util___default.a.toRGB(activeStyle.fill).map(function (e) {
+        var style = util___default.a.assign({}, this.StyleData[featureId]);
+        style.color = attr_color_util___default.a.toRGB(activeStyle.fill).map(function (e) {
           return e / 255;
         });
         this.updateStyle([featureId], style);
@@ -482,7 +482,7 @@ var Layer = function (_Base) {
         // 设置该选项可更新
         option.neadUpdate = true;
         //
-        var className = __WEBPACK_IMPORTED_MODULE_6__util___default.a.upperFirst(type);
+        var className = util___default.a.upperFirst(type);
         // 转换属性
         var fields = parseFields(option.field);
         // 设置缩放比
@@ -490,13 +490,13 @@ var Layer = function (_Base) {
         for (var i = 0; i < fields.length; i++) {
           var field = fields[i];
           var scale = self._createScale(field);
-          if (type === 'color' && __WEBPACK_IMPORTED_MODULE_6__util___default.a.isNil(option.values)) {
+          if (type === 'color' && util___default.a.isNil(option.values)) {
             option.values = Global.colors;
           }
           scales.push(scale);
         }
         option.scales = scales;
-        var attr = new __WEBPACK_IMPORTED_MODULE_5__attr_index___default.a[className](option);
+        var attr = new attr_index___default.a[className](option);
         attrs[type] = attr;
       }
     },
@@ -550,7 +550,7 @@ var Layer = function (_Base) {
                 for (var j = 0; j < values.length; j++) {
                   var val = values[j];
                   var name = names[j];
-                  newRecord[name] = __WEBPACK_IMPORTED_MODULE_6__util___default.a.isArray(val) && val.length === 1 ? val[0] : val;
+                  newRecord[name] = util___default.a.isArray(val) && val.length === 1 ? val[0] : val;
                 }
               } else {
                 newRecord[names[0]] = values.length === 1 ? values[0] : values;
@@ -580,7 +580,7 @@ var Layer = function (_Base) {
                 for (var j = 0; j < values.length; j++) {
                   var val = values[j];
                   var name = names[j];
-                  this.StyleData[i][name] = __WEBPACK_IMPORTED_MODULE_6__util___default.a.isArray(val) && val.length === 1 ? val[0] : val;
+                  this.StyleData[i][name] = util___default.a.isArray(val) && val.length === 1 ? val[0] : val;
                 }
               } else {
                 this.StyleData[i][names[0]] = values.length === 1 ? values[0] : values;
@@ -664,14 +664,14 @@ var Layer = function (_Base) {
       key: '_addPickMesh',
       value: function _addPickMesh(mesh) {
         var _this5 = this;
-        this._pickingMesh = new __WEBPACK_IMPORTED_MODULE_1__three__['Object3D']();
+        this._pickingMesh = new three['Object3D']();
         this._visibleWithZoom();
         this.scene.on('zoomchange', function () {
           _this5._visibleWithZoom();
         });
         this.addToPicking(this._pickingMesh);
-        var pickmaterial = new __WEBPACK_IMPORTED_MODULE_4__core_engine_picking_pickingMaterial__['a']({ u_zoom: this.scene.getZoom() });
-        var pickingMesh = new __WEBPACK_IMPORTED_MODULE_1__three__[mesh.type](mesh.geometry, pickmaterial);
+        var pickmaterial = new core_engine_picking_pickingMaterial['a']({ u_zoom: this.scene.getZoom() });
+        var pickingMesh = new three[mesh.type](mesh.geometry, pickmaterial);
         pickmaterial.setDefinesvalue(this.type, true);
         pickingMesh.onBeforeRender = function () {
           var zoom = _this5.scene.getZoom();
@@ -848,4 +848,4 @@ var Layer = function (_Base) {
     }
   ]);
   return Layer;
-}(__WEBPACK_IMPORTED_MODULE_0__base__['a']);
+}(base['a']);

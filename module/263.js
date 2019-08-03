@@ -1,4 +1,4 @@
-var Util = require('./1');
+var Util = require('./Util');
 var AutoUtil = require('./61');
 var MAX_COUNT = 6;
 var SNAP_ARRAY = [

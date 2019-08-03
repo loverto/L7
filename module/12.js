@@ -21,7 +21,7 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 var ColorUtil = require('./35');
-var Util = require('./1');
+var Util = require('./Util');
 function toScaleString(scale, value) {
   if (Util.isString(value)) {
     return value;

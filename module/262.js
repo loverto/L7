@@ -97,7 +97,7 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 var Linear = require('./28');
-var Util = require('./1');
+var Util = require('./Util');
 var timeAuto = require('./263');
 var fecha = require('./64');
 var TimeUtil = require('./65');

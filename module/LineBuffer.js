@@ -2,8 +2,8 @@
 require.d(exports, 'a', function () {
   return LineBuffer;
 });
-var __WEBPACK_IMPORTED_MODULE_0__bufferBase__ = require('./BufferBase');
-var __WEBPACK_IMPORTED_MODULE_1__shape__ = require('./29');
+var bufferBase = require('./BufferBase');
+var shape = require('./29');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
@@ -157,17 +157,17 @@ var LineBuffer = function (_BufferBase) {
       value: function _getShape(geo, props, index) {
         // 获取形状
         if (!this.shapeType) {
-          return __WEBPACK_IMPORTED_MODULE_1__shape__['a'].defaultLine(geo, index);
+          return shape['a'].defaultLine(geo, index);
         }
         var shape = this.shapeType;
         if (shape === 'meshLine') {
-          return __WEBPACK_IMPORTED_MODULE_1__shape__['a'][shape](geo, props, index);
+          return shape['a'][shape](geo, props, index);
         } else if (shape === 'tubeLine') {
-          return __WEBPACK_IMPORTED_MODULE_1__shape__['a'][shape](geo, props, index);
+          return shape['a'][shape](geo, props, index);
         } else if (shape === 'arc') {
-          return __WEBPACK_IMPORTED_MODULE_1__shape__['a'][shape](geo, props, index);
+          return shape['a'][shape](geo, props, index);
         }
-        return __WEBPACK_IMPORTED_MODULE_1__shape__['a'].Line(geo, props, index);
+        return shape['a'].Line(geo, props, index);
       }
     },
     {
@@ -217,7 +217,7 @@ var LineBuffer = function (_BufferBase) {
         coordinates.forEach(function (geo, index) {
           var props = properties[index];
           var positionCount = positions.length / 3;
-          var attr = __WEBPACK_IMPORTED_MODULE_1__shape__['a'].Line(geo, props, positionCount, lineType !== 'soild');
+          var attr = shape['a'].Line(geo, props, positionCount, lineType !== 'soild');
           positions.push.apply(positions, _toConsumableArray(attr.positions));
           normal.push.apply(normal, _toConsumableArray(attr.normal));
           miter.push.apply(miter, _toConsumableArray(attr.miter));
@@ -281,4 +281,4 @@ var LineBuffer = function (_BufferBase) {
     }
   ]);
   return LineBuffer;
-}(__WEBPACK_IMPORTED_MODULE_0__bufferBase__['a']);
+}(bufferBase['a']);

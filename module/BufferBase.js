@@ -2,10 +2,10 @@
 require.d(exports, 'a', function () {
   return BufferBase;
 });
-var __WEBPACK_IMPORTED_MODULE_0__core_base__ = require('./Base');
-var __WEBPACK_IMPORTED_MODULE_1__core_three__ = require('./three');
-var __WEBPACK_IMPORTED_MODULE_2__normals__ = require('./296');
-var __WEBPACK_IMPORTED_MODULE_3__extrude__ = require('./73');
+var core_base = require('./Base');
+var core_three = require('./three');
+var normals = require('./Normals');
+var extrude = require('./Extrude');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
@@ -100,7 +100,7 @@ var BufferBase = function (_Base) {
       value: function _normals() {
         var _this$bufferStruct = this.bufferStruct, position = _this$bufferStruct.position, indices = _this$bufferStruct.indices, _this$bufferStruct$no = _this$bufferStruct.normals, normals = _this$bufferStruct$no === void 0 ? [] : _this$bufferStruct$no;
         indices.forEach(function (index, i) {
-          normals.push(Object(__WEBPACK_IMPORTED_MODULE_2__normals__['a'])(index, position[i]));
+          normals.push(Object(normals['a'])(index, position[i]));
         });
         this.bufferStruct.normals = normals;
       }
@@ -108,7 +108,7 @@ var BufferBase = function (_Base) {
     {
       key: '_extrude',
       value: function _extrude(coordinate, heightValue) {
-        var extrudeData = Object(__WEBPACK_IMPORTED_MODULE_3__extrude__['a'])(coordinate, heightValue);
+        var extrudeData = Object(extrude['a'])(coordinate, heightValue);
         return extrudeData;
       }
     },
@@ -149,11 +149,11 @@ var BufferBase = function (_Base) {
         var normals = new Float32Array(indexCount * 3);
         var colors = new Float32Array(indexCount * 4);
         var pickingIds = new Float32Array(indexCount);
-        var pA = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Vector3']();
-        var pB = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Vector3']();
-        var pC = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Vector3']();
-        var cb = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Vector3']();
-        var ab = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Vector3']();
+        var pA = new core_three['Vector3']();
+        var pB = new core_three['Vector3']();
+        var pC = new core_three['Vector3']();
+        var cb = new core_three['Vector3']();
+        var ab = new core_three['Vector3']();
         var lastIndex = 0;
         indices.forEach(function (indice, pIndex) {
           for (var i = 0; i < indice.length / 3; i++) {
@@ -238,11 +238,11 @@ var BufferBase = function (_Base) {
         var normals = new Float32Array(indexCount * 3);
         var colors = new Float32Array(indexCount * 4);
         var pickingIds = new Float32Array(indexCount);
-        var pA = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Vector3']();
-        var pB = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Vector3']();
-        var pC = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Vector3']();
-        var cb = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Vector3']();
-        var ab = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Vector3']();
+        var pA = new core_three['Vector3']();
+        var pB = new core_three['Vector3']();
+        var pC = new core_three['Vector3']();
+        var cb = new core_three['Vector3']();
+        var ab = new core_three['Vector3']();
         var lastIndex = 0;
         indices.forEach(function (indice, pIndex) {
           for (var i = 0; i < indice.length / 3; i++) {
@@ -434,11 +434,11 @@ var BufferBase = function (_Base) {
         context2.webkitImageSmoothingEnabled = false;
         context2.mozImageSmoothingEnabled = false;
         context2.drawImage(canvas, 0, 0, canvas2.width, canvas2.height);
-        var texture = new __WEBPACK_IMPORTED_MODULE_1__core_three__['Texture'](canvas2);
+        var texture = new core_three['Texture'](canvas2);
         texture.needsUpdate = true;
         return texture;
       }
     }
   ]);
   return BufferBase;
-}(__WEBPACK_IMPORTED_MODULE_0__core_base__['a']);
+}(core_base['a']);

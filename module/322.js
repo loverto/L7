@@ -3,7 +3,7 @@ require.d(exports, 'a', function () {
   return ImageBuffer;
 });
 var __WEBPACK_IMPORTED_MODULE_0__bufferBase__ = require('./BufferBase');
-var __WEBPACK_IMPORTED_MODULE_1__util__ = require('./1');
+var __WEBPACK_IMPORTED_MODULE_1__util__ = require('./Util');
 var __WEBPACK_IMPORTED_MODULE_1__util___default = require.n(__WEBPACK_IMPORTED_MODULE_1__util__);
 var __WEBPACK_IMPORTED_MODULE_2__core_three__ = require('./three');
 function _typeof(obj) {

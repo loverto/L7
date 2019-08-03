@@ -1,8 +1,8 @@
 'use strict';
-var __WEBPACK_IMPORTED_MODULE_0_wolfy87_eventemitter__ = require('./30');
-var __WEBPACK_IMPORTED_MODULE_0_wolfy87_eventemitter___default = require.n(__WEBPACK_IMPORTED_MODULE_0_wolfy87_eventemitter__);
-var __WEBPACK_IMPORTED_MODULE_1__util__ = require('./1');
-var __WEBPACK_IMPORTED_MODULE_1__util___default = require.n(__WEBPACK_IMPORTED_MODULE_1__util__);
+var wolfy87_eventemitter = require('./EventEmitter');
+var wolfy87_eventemitter___default = require.n(wolfy87_eventemitter);
+var util = require('./Util');
+var util___default = require.n(util);
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
@@ -91,7 +91,7 @@ var Base = function (_EventEmitter) {
     var attrs = { visible: true };
     var defaultCfg = _this.getDefaultCfg();
     _this._attrs = attrs;
-    __WEBPACK_IMPORTED_MODULE_1__util___default.a.assign(attrs, defaultCfg, cfg);
+    util___default.a.assign(attrs, defaultCfg, cfg);
     return _this;
   }
   _createClass(Base, [
@@ -117,5 +117,5 @@ var Base = function (_EventEmitter) {
     }
   ]);
   return Base;
-}(__WEBPACK_IMPORTED_MODULE_0_wolfy87_eventemitter___default.a);
+}(wolfy87_eventemitter___default.a);
 exports['a'] = Base;

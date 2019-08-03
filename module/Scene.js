@@ -2,15 +2,18 @@
 require.d(exports, 'a', function () {
   return Scene;
 });
-var __WEBPACK_IMPORTED_MODULE_0__engine__ = require('./Engine');
-var __WEBPACK_IMPORTED_MODULE_1__three__ = require('./three');
-var __WEBPACK_IMPORTED_MODULE_2__layer__ = require('./ExportLayer');
-var __WEBPACK_IMPORTED_MODULE_3__base__ = require('./Base');
-var __WEBPACK_IMPORTED_MODULE_4__image__ = require('./LoadImage');
-var __WEBPACK_IMPORTED_MODULE_5__map_provider__ = require('./MapProvider');
-var __WEBPACK_IMPORTED_MODULE_6__map_gaodeMap__ = require('./GaodeMap');
-var __WEBPACK_IMPORTED_MODULE_7__global__ = require('./Global');
-var __WEBPACK_IMPORTED_MODULE_7__global___default = require.n(__WEBPACK_IMPORTED_MODULE_7__global__);
+// 引擎
+var engine = require('./Engine');
+// threejs
+var three = require('./three');
+//
+var layer = require('./ExportLayer');
+var base = require('./Base');
+var image = require('./LoadImage');
+var map_provider = require('./MapProvider');
+var map_gaodeMap = require('./GaodeMap');
+var global = require('./Global');
+var global___default = require.n(global);
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
@@ -114,7 +117,7 @@ var Scene = function (_Base) {
   _createClass(Scene, [{
       key: 'getDefaultCfg',
       value: function getDefaultCfg() {
-        return __WEBPACK_IMPORTED_MODULE_7__global___default.a.scene;
+        return global___default.a.scene;
       }
     }]);
   function Scene(cfg) {
@@ -131,7 +134,7 @@ var Scene = function (_Base) {
     {
       key: '_initEngine',
       value: function _initEngine(mapContainer) {
-        this._engine = new __WEBPACK_IMPORTED_MODULE_0__engine__['a'](mapContainer, this);
+        this._engine = new engine['a'](mapContainer, this);
         this._engine.run();
       }
     },
@@ -147,10 +150,10 @@ var Scene = function (_Base) {
         var _this2 = this;
         this.mapContainer = this.get('id');
         this._container = document.getElementById(this.mapContainer);
-        var Map = new __WEBPACK_IMPORTED_MODULE_5__map_provider__['a'](this.mapContainer, this._attrs);
+        var Map = new map_provider['a'](this.mapContainer, this._attrs);
         Map.on('mapLoad', function () {
           _this2._initEngine(Map.renderDom);
-          var sceneMap = new __WEBPACK_IMPORTED_MODULE_6__map_gaodeMap__['a'](Map.map);
+          var sceneMap = new map_gaodeMap['a'](Map.map);
           Object.getOwnPropertyNames(sceneMap.__proto__).forEach(function (key) {
             if (true) {
               _this2.__proto__[key] = sceneMap.__proto__[key];
@@ -170,12 +173,12 @@ var Scene = function (_Base) {
         var _loop = function _loop(methodName) {
           _this3[methodName] = function (cfg) {
             cfg ? cfg.mapType = _this3.mapType : cfg = { mapType: _this3.mapType };
-            var layer = new __WEBPACK_IMPORTED_MODULE_2__layer__[methodName](_this3, cfg);
+            var layer = new layer[methodName](_this3, cfg);
             _this3._layers.push(layer);
             return layer;
           };
         };
-        for (var methodName in __WEBPACK_IMPORTED_MODULE_2__layer__) {
+        for (var methodName in layer) {
           _loop(methodName);
         }
       }
@@ -202,7 +205,7 @@ var Scene = function (_Base) {
     {
       key: 'addImage',
       value: function addImage() {
-        this.image = new __WEBPACK_IMPORTED_MODULE_4__image__['a']();
+        this.image = new image['a']();
       }
     },
     {
@@ -220,9 +223,9 @@ var Scene = function (_Base) {
       key: '_addLight',
       value: function _addLight() {
         var scene = this._engine._scene;
-        var ambientLight = new __WEBPACK_IMPORTED_MODULE_1__three__['AmbientLight'](11184810);
+        var ambientLight = new three['AmbientLight'](11184810);
         scene.add(ambientLight);
-        var directionalLight = new __WEBPACK_IMPORTED_MODULE_1__three__['DirectionalLight'](16777215, 0.5);
+        var directionalLight = new three['DirectionalLight'](16777215, 0.5);
         scene.add(directionalLight);
       }
     },
@@ -243,4 +246,4 @@ var Scene = function (_Base) {
     }
   ]);
   return Scene;
-}(__WEBPACK_IMPORTED_MODULE_3__base__['a']);
+}(base['a']);

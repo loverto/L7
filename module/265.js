@@ -97,7 +97,7 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 var Linear = require('./28');
-var Util = require('./1');
+var Util = require('./Util');
 function log(a, b) {
   if (a === 1) {
     return 1;

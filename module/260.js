@@ -1,4 +1,4 @@
-var Util = require('./1');
+var Util = require('./Util');
 var AutoUtil = require('./61');
 var MIN_COUNT = 5;
 var MAX_COUNT = 7;

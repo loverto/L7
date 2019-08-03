@@ -73,7 +73,7 @@ function _setPrototypeOf(o, p) {
 }
 var ColorUtil = require('./35');
 var Base = require('./12');
-var Util = require('./1');
+var Util = require('./Util');
 var Color = function (_Base) {
   _inherits(Color, _Base);
   function Color(cfg) {
