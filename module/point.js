@@ -5,7 +5,7 @@ exports['triangle'] = triangle;
 exports['diamond'] = diamond;
 exports['square'] = square;
 exports['hexagon'] = hexagon;
-var __WEBPACK_IMPORTED_MODULE_0__polygon__ = require('./72');
+var __WEBPACK_IMPORTED_MODULE_0__polygon__ = require('./polygon');
 function circle(type) {
   var points = polygonPoint(30);
   return __WEBPACK_IMPORTED_MODULE_0__polygon__[type]([points]);

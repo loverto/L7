@@ -71,68 +71,43 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var Base = require('./12');
-var Util = require('./Util');
-var Size = function (_Base) {
-  _inherits(Size, _Base);
-  function Size(cfg) {
+var Base = require('./AttributeBase');
+var Shape = function (_Base) {
+  _inherits(Shape, _Base);
+  function Shape(cfg) {
     var _this;
-    _classCallCheck(this, Size);
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Size).call(this, cfg));
-    _this.names = ['size'];
-    _this.type = 'size';
+    _classCallCheck(this, Shape);
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Shape).call(this, cfg));
+    _this.names = ['shape'];
+    _this.type = 'shape';
     _this.gradient = null;
-    _this.domainIndex = 0;
     return _this;
   }
-  _createClass(Size, [
-    {
-      key: 'mapping',
-      value: function mapping() {
-        var self = this;
-        var outputs = [];
-        var scales = self.scales;
-        if (self.values.length === 0) {
-          var callback = this.callback.bind(this);
-          outputs.push(callback.apply(void 0, arguments));
-        } else {
-          if (!Util.isArray(self.values[0])) {
-            self.values = [self.values];
-          }
-          for (var i = 0; i < scales.length; i++) {
-            outputs.push(self._scaling(scales[i], arguments[i]));
-          }
-        }
-        this.domainIndex = 0;
-        return outputs;
-      }
-    },
-    {
-      key: '_scaling',
-      value: function _scaling(scale, v) {
-        if (scale.type === 'identity') {
-          return v;
-        } else if (scale.type === 'linear') {
-          var percent = scale.scale(v);
-          return this.getLinearValue(percent);
-        }
-      }
-    },
+  _createClass(Shape, [
     {
       key: 'getLinearValue',
       value: function getLinearValue(percent) {
-        var values = this.values[this.domainIndex];
-        var steps = values.length - 1;
-        var step = Math.floor(steps * percent);
-        var leftPercent = steps * percent - step;
-        var start = values[step];
-        var end = step === steps ? start : values[step + 1];
-        var rstValue = start + (end - start) * leftPercent;
-        this.domainIndex += 1;
-        return rstValue;
+        var values = this.values;
+        var index = Math.round((values.length - 1) * percent);
+        return values[index];
+      }
+    },
+    {
+      key: '_getAttrValue',
+      value: function _getAttrValue(scale, value) {
+        if (this.values === 'text') {
+          return value;
+        }
+        var values = this.values;
+        if (scale.isCategory && !this.linear) {
+          var index = scale.translate(value);
+          return values[index % values.length];
+        }
+        var percent = scale.scale(value);
+        return this.getLinearValue(percent);
       }
     }
   ]);
-  return Size;
+  return Shape;
 }(Base);
-module.exports = Size;
+module.exports = Shape;

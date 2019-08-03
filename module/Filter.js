@@ -54,18 +54,18 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var Base = require('./12');
-var Opacity = function (_Base) {
-  _inherits(Opacity, _Base);
-  function Opacity(cfg) {
+var Base = require('./AttributeBase');
+var Filter = function (_Base) {
+  _inherits(Filter, _Base);
+  function Filter(cfg) {
     var _this;
-    _classCallCheck(this, Opacity);
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Opacity).call(this, cfg));
-    _this.names = ['opacity'];
-    _this.type = 'opacity';
+    _classCallCheck(this, Filter);
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Filter).call(this, cfg));
+    _this.names = ['filter'];
+    _this.type = 'filter';
     _this.gradient = null;
     return _this;
   }
-  return Opacity;
+  return Filter;
 }(Base);
-module.exports = Opacity;
+module.exports = Filter;

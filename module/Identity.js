@@ -96,108 +96,48 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var Base = require('./27');
+var Base = require('./Scale');
 var Util = require('./Util');
-var catAuto = require('./63');
-var Category = function (_Base) {
-  _inherits(Category, _Base);
-  function Category() {
-    _classCallCheck(this, Category);
-    return _possibleConstructorReturn(this, _getPrototypeOf(Category).apply(this, arguments));
+var Identity = function (_Base) {
+  _inherits(Identity, _Base);
+  function Identity() {
+    _classCallCheck(this, Identity);
+    return _possibleConstructorReturn(this, _getPrototypeOf(Identity).apply(this, arguments));
   }
-  _createClass(Category, [
+  _createClass(Identity, [
     {
       key: 'getDefaultCfg',
       value: function getDefaultCfg() {
-        var cfg = _get(_getPrototypeOf(Category.prototype), 'getDefaultCfg', this).call(this);
+        var cfg = _get(_getPrototypeOf(Identity.prototype), 'getDefaultCfg', this).call(this);
         return Util.mix({}, cfg, {
-          type: 'cat',
-          tickCount: null,
-          isCategory: true
+          isIdentity: true,
+          type: 'identity',
+          value: null
         });
-      }
-    },
-    {
-      key: 'init',
-      value: function init() {
-        var self = this;
-        var values = self.values;
-        var tickCount = self.tickCount;
-        Util.each(values, function (v, i) {
-          values[i] = v.toString();
-        });
-        if (!self.ticks) {
-          var ticks = values;
-          if (tickCount) {
-            var temp = catAuto({
-              maxCount: tickCount,
-              data: values
-            });
-            ticks = temp.ticks;
-          }
-          this.ticks = ticks;
-        }
       }
     },
     {
       key: 'getText',
-      value: function getText(value) {
-        if (this.values.indexOf(value) === -1 && Util.isNumber(value)) {
-          value = this.values[Math.round(value)];
-        }
-        return _get(_getPrototypeOf(Category.prototype), 'getText', this).call(this, value);
-      }
-    },
-    {
-      key: 'translate',
-      value: function translate(value) {
-        var index = this.values.indexOf(value);
-        if (index === -1 && Util.isNumber(value)) {
-          index = value;
-        } else if (index === -1) {
-          index = NaN;
-        }
-        return index;
+      value: function getText() {
+        return this.value.toString();
       }
     },
     {
       key: 'scale',
       value: function scale(value) {
-        var rangeMin = this.rangeMin();
-        var rangeMax = this.rangeMax();
-        var percent;
-        if (Util.isString(value) || this.values.indexOf(value) !== -1) {
-          value = this.translate(value);
+        if (this.value !== value && Util.isNumber(value)) {
+          return value;
         }
-        if (this.values.length > 1) {
-          percent = value / (this.values.length - 1);
-        } else {
-          percent = value;
-        }
-        return rangeMin + percent * (rangeMax - rangeMin);
+        return this.range[0];
       }
     },
     {
       key: 'invert',
-      value: function invert(value) {
-        if (Util.isString(value)) {
-          return value;
-        }
-        var min = this.rangeMin();
-        var max = this.rangeMax();
-        if (value < min) {
-          value = min;
-        }
-        if (value > max) {
-          value = max;
-        }
-        var percent = (value - min) / (max - min);
-        var index = Math.round(percent * (this.values.length - 1)) % this.values.length;
-        index = index || 0;
-        return this.values[index];
+      value: function invert() {
+        return this.value;
       }
     }
   ]);
-  return Category;
+  return Identity;
 }(Base);
-module.exports = Category;
+module.exports = Identity;

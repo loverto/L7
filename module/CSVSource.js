@@ -3,7 +3,7 @@ require.d(exports, 'a', function () {
   return CSVSource;
 });
 var __WEBPACK_IMPORTED_MODULE_0__core_source__ = require('./Source');
-var __WEBPACK_IMPORTED_MODULE_1__geo_featureIndex__ = require('./68');
+var __WEBPACK_IMPORTED_MODULE_1__geo_featureIndex__ = require('./FeatureIndex');
 var __WEBPACK_IMPORTED_MODULE_2__util__ = require('./Util');
 var __WEBPACK_IMPORTED_MODULE_2__util___default = require.n(__WEBPACK_IMPORTED_MODULE_2__util__);
 var __WEBPACK_IMPORTED_MODULE_3_d3_dsv__ = require('./272');

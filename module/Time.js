@@ -96,11 +96,11 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var Linear = require('./28');
+var Linear = require('./Linear');
 var Util = require('./Util');
-var timeAuto = require('./263');
+var timeAuto = require('./TimeAuto');
 var fecha = require('./64');
-var TimeUtil = require('./65');
+var TimeUtil = require('./TimeUtil');
 var Time = function (_Linear) {
   _inherits(Time, _Linear);
   function Time() {

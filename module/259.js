@@ -1,12 +1,12 @@
 var Util = require('./Util');
-var Base = require('./27');
-Base.Linear = require('./28');
-Base.Identity = require('./261');
-Base.Cat = require('./62');
-Base.Time = require('./262');
-Base.TimeCat = require('./264');
-Base.Log = require('./265');
-Base.Pow = require('./266');
+var Base = require('./Scale');
+Base.Linear = require('./Linear');
+Base.Identity = require('./Identity');
+Base.Cat = require('./Category');
+Base.Time = require('./Time');
+Base.TimeCat = require('./TimeCategory');
+Base.Log = require('./Log');
+Base.Pow = require('./Pow');
 var _loop = function _loop(k) {
   if (Base.hasOwnProperty(k)) {
     var methodName = Util.lowerFirst(k);

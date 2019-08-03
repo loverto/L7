@@ -1,5 +1,5 @@
 var Util = require('./Util');
-var AutoUtil = require('./61');
+var AutoUtil = require('./AutoUtil');
 var MIN_COUNT = 5;
 var MAX_COUNT = 7;
 var Global = require('./Global');

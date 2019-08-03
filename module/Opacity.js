@@ -15,23 +15,6 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ('value' in descriptor)
-      descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps)
-    _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps)
-    _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
 function _possibleConstructorReturn(self, call) {
   if (call && (_typeof(call) === 'object' || typeof call === 'function')) {
     return call;
@@ -71,43 +54,18 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var Base = require('./12');
-var Shape = function (_Base) {
-  _inherits(Shape, _Base);
-  function Shape(cfg) {
+var Base = require('./AttributeBase');
+var Opacity = function (_Base) {
+  _inherits(Opacity, _Base);
+  function Opacity(cfg) {
     var _this;
-    _classCallCheck(this, Shape);
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Shape).call(this, cfg));
-    _this.names = ['shape'];
-    _this.type = 'shape';
+    _classCallCheck(this, Opacity);
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Opacity).call(this, cfg));
+    _this.names = ['opacity'];
+    _this.type = 'opacity';
     _this.gradient = null;
     return _this;
   }
-  _createClass(Shape, [
-    {
-      key: 'getLinearValue',
-      value: function getLinearValue(percent) {
-        var values = this.values;
-        var index = Math.round((values.length - 1) * percent);
-        return values[index];
-      }
-    },
-    {
-      key: '_getAttrValue',
-      value: function _getAttrValue(scale, value) {
-        if (this.values === 'text') {
-          return value;
-        }
-        var values = this.values;
-        if (scale.isCategory && !this.linear) {
-          var index = scale.translate(value);
-          return values[index % values.length];
-        }
-        var percent = scale.scale(value);
-        return this.getLinearValue(percent);
-      }
-    }
-  ]);
-  return Shape;
+  return Opacity;
 }(Base);
-module.exports = Shape;
+module.exports = Opacity;

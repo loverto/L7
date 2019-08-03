@@ -8,7 +8,7 @@ var three = require('./three');
 var __WEBPACK_IMPORTED_MODULE_2__scene__ = require('./247');
 var __WEBPACK_IMPORTED_MODULE_3__camera__ = require('./248');
 var __WEBPACK_IMPORTED_MODULE_4__renderer__ = require('./249');
-var __WEBPACK_IMPORTED_MODULE_5__picking_picking__ = require('./250');
+var __WEBPACK_IMPORTED_MODULE_5__picking_picking__ = require('./Picking');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {

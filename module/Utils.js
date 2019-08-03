@@ -406,7 +406,7 @@
       module.exports = values;
     },
     function (module, exports, require) {
-      var parsePathArray = require('./28');
+      var parsePathArray = require('./Linear');
       module.exports = function rectPath(x, y, w, h, r) {
         if (r) {
           return [
@@ -1316,7 +1316,7 @@
         deepMix: require('./117'),
         each: each,
         extend: require('./118'),
-        filter: require('./12'),
+        filter: require('./AttributeBase'),
         group: require('./119'),
         groupBy: require('./38'),
         groupToMap: require('./37'),
@@ -1514,18 +1514,18 @@
         flattenDeep: require('./58'),
         getRange: require('./59'),
         merge: require('./60'),
-        pull: require('./61'),
+        pull: require('./AutoUtil'),
         pullAt: require('./19'),
-        reduce: require('./62'),
-        remove: require('./63'),
+        reduce: require('./Category'),
+        remove: require('./CatAuto'),
         sortBy: require('./64'),
-        union: require('./65'),
+        union: require('./TimeUtil'),
         uniq: require('./Global'),
         valuesOfKey: require('./66')
       };
     },
     function (module, exports, require) {
-      var filter = require('./12');
+      var filter = require('./AttributeBase');
       var contains = require('./9');
       var difference = function difference(arr) {
         var values = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
@@ -1618,7 +1618,7 @@
       module.exports = flattenDeep;
     },
     function (module, exports, require) {
-      var filter = require('./12');
+      var filter = require('./AttributeBase');
       var isArray = require('./Util');
       var getRange = function getRange(values) {
         values = filter(values, function (v) {
@@ -1789,7 +1789,7 @@
     },
     function (module, exports, require) {
       module.exports = {
-        getWrapBehavior: require('./68'),
+        getWrapBehavior: require('./FeatureIndex'),
         wrapBehavior: require('./CSVSource')
       };
     },
@@ -1817,7 +1817,7 @@
       module.exports = {
         number2color: number2color,
         numberToColor: number2color,
-        parsePath: require('./72'),
+        parsePath: require('./polygon'),
         parseRadius: require('./Extrude')
       };
     },
@@ -3319,18 +3319,18 @@
         formatPath: require('./104'),
         intersection: pathIntersection,
         pathIntersection: pathIntersection,
-        parsePathArray: require('./28'),
+        parsePathArray: require('./Linear'),
         parsePathString: require('./31'),
         pathToAbsolute: path2absolute,
         path2absolute: path2absolute,
         pathTocurve: path2curve,
         path2curve: path2curve,
-        rectPath: require('./27')
+        rectPath: require('./Scale')
       };
     },
     function (module, exports, require) {
       var isArray = require('./Util');
-      var rectPath = require('./27');
+      var rectPath = require('./Scale');
       var pathTocurve = require('./29');
       var base3 = function base3(t, p1, p2, p3, p4) {
         var t1 = -3 * p1 + 9 * p2 - 9 * p3 + 3 * p4;
@@ -4206,7 +4206,7 @@
     function (module, exports, require) {
       var isType = require('./4');
       var checkType = {
-        getType: require('./35'),
+        getType: require('./ColorUtil'),
         isArray: require('./Util'),
         isArrayLike: require('./3'),
         isBoolean: require('./112'),
@@ -4386,7 +4386,7 @@
     function (module, exports, require) {
       var isNil = require('./5');
       var isArrayLike = require('./3');
-      var getType = require('./35');
+      var getType = require('./ColorUtil');
       var isPrototype = require('./36');
       var hasOwnProperty = Object.prototype.hasOwnProperty;
       function isEmpty(value) {

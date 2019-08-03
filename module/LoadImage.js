@@ -2,10 +2,10 @@
 require.d(exports, 'a', function () {
   return LoadImage;
 });
-var __WEBPACK_IMPORTED_MODULE_0__three__ = require('./three');
-var __WEBPACK_IMPORTED_MODULE_1_wolfy87_eventemitter__ = require('./EventEmitter');
-var __WEBPACK_IMPORTED_MODULE_1_wolfy87_eventemitter___default = require.n(__WEBPACK_IMPORTED_MODULE_1_wolfy87_eventemitter__);
-var __WEBPACK_IMPORTED_MODULE_2__util_ajax__ = require('./38');
+var three = require('./three');
+var wolfy87_eventemitter = require('./EventEmitter');
+var wolfy87_eventemitter___default = require.n(wolfy87_eventemitter);
+var util_ajax = require('./38');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
@@ -109,14 +109,14 @@ var LoadImage = function (_EventEmitter) {
           x: x / 512,
           y: y / 512
         };
-        this.texture = new __WEBPACK_IMPORTED_MODULE_0__three__['Texture'](this.canvas);
+        this.texture = new three['Texture'](this.canvas);
         if (typeof opt === 'string') {
-          Object(__WEBPACK_IMPORTED_MODULE_2__util_ajax__['a'])({ url: opt }, function (err, img) {
+          Object(util_ajax['a'])({ url: opt }, function (err, img) {
             img.id = id;
             _this2.images.push(img);
             _this2.ctx.drawImage(img, x, y, 64, 64);
-            _this2.texture.magFilter = __WEBPACK_IMPORTED_MODULE_0__three__['LinearFilter'];
-            _this2.texture.minFilter = __WEBPACK_IMPORTED_MODULE_0__three__['LinearFilter'];
+            _this2.texture.magFilter = three['LinearFilter'];
+            _this2.texture.minFilter = three['LinearFilter'];
             _this2.texture.needsUpdate = true;
             if (_this2.images.length === _this2.imagesCount) {
               _this2.emit('imageLoaded');
@@ -132,7 +132,7 @@ var LoadImage = function (_EventEmitter) {
           image.id = id;
           this.images.push(image);
           this.ctx.drawImage(image, x, y, 64, 64);
-          this.texture = new __WEBPACK_IMPORTED_MODULE_0__three__['CanvasTexture'](this.canvas);
+          this.texture = new three['CanvasTexture'](this.canvas);
           this.imagePos[id] = {
             x: x >> 9,
             y: y >> 9
@@ -150,4 +150,4 @@ var LoadImage = function (_EventEmitter) {
     }
   ]);
   return LoadImage;
-}(__WEBPACK_IMPORTED_MODULE_1_wolfy87_eventemitter___default.a);
+}(wolfy87_eventemitter___default.a);

@@ -1,5 +1,5 @@
 'use strict';
-var __WEBPACK_IMPORTED_MODULE_0__pickingScene__ = require('./251');
+var __WEBPACK_IMPORTED_MODULE_0__pickingScene__ = require('./pickingScene');
 var __WEBPACK_IMPORTED_MODULE_1__three__ = require('./three');
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {

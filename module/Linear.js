@@ -96,9 +96,9 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var Base = require('./27');
+var Base = require('./Scale');
 var Util = require('./Util');
-var numberAuto = require('./260');
+var numberAuto = require('./numberAuto');
 var Linear = function (_Base) {
   _inherits(Linear, _Base);
   function Linear() {

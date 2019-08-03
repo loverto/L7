@@ -1,15 +1,3 @@
-'use strict';
-require.d(exports, 'a', function () {
-  return GeojsonSource;
-});
-var core_source = require('./Source');
-var turf_meta = require('./66');
-var turf_meta___default = require.n(turf_meta);
-var turf_clean_coords = require('./268');
-var turf_clean_coords___default = require.n(turf_clean_coords);
-var turf_invariant = require('./67');
-var turf_invariant___default = require.n(turf_invariant);
-var geo_featureIndex = require('./FeatureIndex');
 function _typeof(obj) {
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
@@ -83,54 +71,68 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var GeojsonSource = function (_Source) {
-  _inherits(GeojsonSource, _Source);
-  function GeojsonSource() {
-    _classCallCheck(this, GeojsonSource);
-    return _possibleConstructorReturn(this, _getPrototypeOf(GeojsonSource).apply(this, arguments));
+var Base = require('./AttributeBase');
+var Util = require('./Util');
+var Size = function (_Base) {
+  _inherits(Size, _Base);
+  function Size(cfg) {
+    var _this;
+    _classCallCheck(this, Size);
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Size).call(this, cfg));
+    _this.names = ['size'];
+    _this.type = 'size';
+    _this.gradient = null;
+    _this.domainIndex = 0;
+    return _this;
   }
-  _createClass(GeojsonSource, [
+  _createClass(Size, [
     {
-      key: 'prepareData',
-      value: function prepareData() {
-        var _this = this;
-        this.type = 'geojson';
-        var data = this.get('data');
-        this.propertiesData = [];
-        this.geoData = [];
-        turf_meta['flattenEach'](data, function (currentFeature, featureIndex) {
-          var coord = Object(turf_invariant['getCoords'])(turf_clean_coords___default()(currentFeature));
-          _this.geoData.push(_this._coordProject(coord));
-          currentFeature.properties._id = featureIndex + 1;
-          _this.propertiesData.push(currentFeature.properties);
-        });
+      key: 'mapping',
+      value: function mapping() {
+        var self = this;
+        var outputs = [];
+        var scales = self.scales;
+        if (self.values.length === 0) {
+          var callback = this.callback.bind(this);
+          outputs.push(callback.apply(void 0, arguments));
+        } else {
+          if (!Util.isArray(self.values[0])) {
+            self.values = [self.values];
+          }
+          for (var i = 0; i < scales.length; i++) {
+            outputs.push(self._scaling(scales[i], arguments[i]));
+          }
+        }
+        this.domainIndex = 0;
+        return outputs;
       }
     },
     {
-      key: 'featureIndex',
-      value: function featureIndex() {
-        var data = this.get('data');
-        this.featureIndex = new geo_featureIndex['a'](data);
+      key: '_scaling',
+      value: function _scaling(scale, v) {
+        if (scale.type === 'identity') {
+          return v;
+        } else if (scale.type === 'linear') {
+          var percent = scale.scale(v);
+          return this.getLinearValue(percent);
+        }
       }
     },
     {
-      key: 'getSelectFeatureId',
-      value: function getSelectFeatureId(featureId) {
-        var data = this.get('data');
-        var selectFeatureIds = [];
-        var featureStyleId = 0;
-        turf_meta['flattenEach'](data, function (currentFeature, featureIndex) {
-          if (featureIndex === featureId) {
-            selectFeatureIds.push(featureStyleId);
-          }
-          featureStyleId++;
-          if (featureIndex > featureId) {
-            return;
-          }
-        });
-        return selectFeatureIds;
+      key: 'getLinearValue',
+      value: function getLinearValue(percent) {
+        var values = this.values[this.domainIndex];
+        var steps = values.length - 1;
+        var step = Math.floor(steps * percent);
+        var leftPercent = steps * percent - step;
+        var start = values[step];
+        var end = step === steps ? start : values[step + 1];
+        var rstValue = start + (end - start) * leftPercent;
+        this.domainIndex += 1;
+        return rstValue;
       }
     }
   ]);
-  return GeojsonSource;
-}(core_source['a']);
+  return Size;
+}(Base);
+module.exports = Size;

@@ -96,92 +96,145 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var Linear = require('./28');
+var Category = require('./Category');
 var Util = require('./Util');
-function calBase(a, b) {
-  var e = Math.E;
-  var value = Math.pow(e, Math.log(b) / a);
-  return value;
-}
-var Pow = function (_Linear) {
-  _inherits(Pow, _Linear);
-  function Pow() {
-    _classCallCheck(this, Pow);
-    return _possibleConstructorReturn(this, _getPrototypeOf(Pow).apply(this, arguments));
+var fecha = require('./64');
+var catAuto = require('./CatAuto');
+var TimeUtil = require('./TimeUtil');
+var TimeCategory = function (_Category) {
+  _inherits(TimeCategory, _Category);
+  function TimeCategory() {
+    _classCallCheck(this, TimeCategory);
+    return _possibleConstructorReturn(this, _getPrototypeOf(TimeCategory).apply(this, arguments));
   }
-  _createClass(Pow, [
+  _createClass(TimeCategory, [
     {
       key: 'getDefaultCfg',
       value: function getDefaultCfg() {
-        var cfg = _get(_getPrototypeOf(Pow.prototype), 'getDefaultCfg', this).call(this);
+        var cfg = _get(_getPrototypeOf(TimeCategory.prototype), 'getDefaultCfg', this).call(this);
         return Util.mix({}, cfg, {
-          type: 'pow',
-          exponent: 2,
-          tickCount: 10
+          type: 'timeCat',
+          mask: 'YYYY-MM-DD',
+          tickCount: 7
         });
       }
     },
     {
-      key: 'calculateTicks',
-      value: function calculateTicks() {
+      key: 'init',
+      value: function init() {
         var self = this;
-        var exponent = self.exponent;
-        var min;
-        var max = Math.ceil(calBase(exponent, self.max));
-        if (self.min >= 0) {
-          min = Math.floor(calBase(exponent, self.min));
+        var values = this.values;
+        Util.each(values, function (v, i) {
+          values[i] = self._toTimeStamp(v);
+        });
+        values.sort(function (v1, v2) {
+          return v1 - v2;
+        });
+        if (!self.ticks) {
+          self.ticks = this.calculateTicks(false);
+        }
+      }
+    },
+    {
+      key: 'calculateTicks',
+      value: function calculateTicks(formated) {
+        var self = this;
+        var count = self.tickCount;
+        var ticks;
+        if (count) {
+          var temp = catAuto({
+            maxCount: count,
+            data: self.values
+          });
+          ticks = temp.ticks;
         } else {
-          min = 0;
+          ticks = self.values;
         }
-        if (min > max) {
-          var tmp = max;
-          max = min;
-          min = tmp;
-        }
-        var count = max - min;
-        var tickCount = self.tickCount;
-        var avg = Math.ceil(count / tickCount);
-        var ticks = [];
-        for (var i = min; i < max + avg; i = i + avg) {
-          ticks.push(Math.pow(i, exponent));
+        if (formated) {
+          Util.each(ticks, function (value, index) {
+            ticks[index] = fecha.format(value, self.mask);
+          });
         }
         return ticks;
       }
     },
     {
-      key: '_getScalePercent',
-      value: function _getScalePercent(value) {
-        var max = this.max;
-        var min = this.min;
-        if (max === min) {
-          return 0;
+      key: 'translate',
+      value: function translate(value) {
+        value = this._toTimeStamp(value);
+        var index = this.values.indexOf(value);
+        if (index === -1) {
+          if (Util.isNumber(value) && value < this.values.length) {
+            index = value;
+          } else {
+            index = NaN;
+          }
         }
-        var exponent = this.exponent;
-        var percent = (calBase(exponent, value) - calBase(exponent, min)) / (calBase(exponent, max) - calBase(exponent, min));
-        return percent;
+        return index;
       }
     },
     {
       key: 'scale',
       value: function scale(value) {
-        var percent = this._getScalePercent(value);
         var rangeMin = this.rangeMin();
         var rangeMax = this.rangeMax();
+        var index = this.translate(value);
+        var percent;
+        if (this.values.length === 1) {
+          percent = index;
+        } else if (index > -1) {
+          percent = index / (this.values.length - 1);
+        } else {
+          percent = 0;
+        }
         return rangeMin + percent * (rangeMax - rangeMin);
       }
     },
     {
-      key: 'invert',
-      value: function invert(value) {
-        var percent = (value - this.rangeMin()) / (this.rangeMax() - this.rangeMin());
-        var exponent = this.exponent;
-        var max = calBase(exponent, this.max);
-        var min = calBase(exponent, this.min);
-        var tmp = percent * (max - min) + min;
-        return Math.pow(tmp, exponent);
+      key: 'getText',
+      value: function getText(value) {
+        var result = '';
+        var index = this.translate(value);
+        if (index > -1) {
+          result = this.values[index];
+        } else {
+          result = value;
+        }
+        var formatter = this.formatter;
+        result = parseInt(result, 10);
+        result = formatter ? formatter(result) : fecha.format(result, this.mask);
+        return result;
+      }
+    },
+    {
+      key: 'getTicks',
+      value: function getTicks() {
+        var self = this;
+        var ticks = this.ticks;
+        var rst = [];
+        Util.each(ticks, function (tick) {
+          var obj;
+          if (Util.isObject(tick)) {
+            obj = tick;
+          } else {
+            obj = {
+              text: Util.isString(tick) ? tick : self.getText(tick),
+              tickValue: tick,
+              value: self.scale(tick)
+            };
+          }
+          rst.push(obj);
+        });
+        return rst;
+      }
+    },
+    {
+      key: '_toTimeStamp',
+      value: function _toTimeStamp(value) {
+        return TimeUtil.toTimeStamp(value);
       }
     }
   ]);
-  return Pow;
-}(Linear);
-module.exports = Pow;
+  return TimeCategory;
+}(Category);
+module.exports = TimeCategory;

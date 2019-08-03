@@ -20,7 +20,7 @@ function _createClass(Constructor, protoProps, staticProps) {
     _defineProperties(Constructor, staticProps);
   return Constructor;
 }
-var ColorUtil = require('./35');
+var ColorUtil = require('./ColorUtil');
 var Util = require('./Util');
 function toScaleString(scale, value) {
   if (Util.isString(value)) {

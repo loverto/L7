@@ -77,7 +77,7 @@ function _setPrototypeOf(o, p) {
   };
   return _setPrototypeOf(o, p);
 }
-var Controller = require('./257');
+var Controller = require('./Controller');
 var Source = function (_Base) {
   _inherits(Source, _Base);
   _createClass(Source, [{

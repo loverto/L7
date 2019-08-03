@@ -1,4 +1,4 @@
-var Utils = require('./254');
+var Utils = require('@antv/util');
 var Util = Utils.mix({}, Utils, {
   assign: Utils.mix,
   merge: Utils.deepMix,

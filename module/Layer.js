@@ -4,10 +4,10 @@ require.d(exports, 'a', function () {
 });
 var base = require('./Base');
 var three = require('./three');
-var attr_color_util = require('./35');
+var attr_color_util = require('./ColorUtil');
 var attr_color_util___default = require.n(attr_color_util);
 var source_index = require('./SourceManager');
-var core_engine_picking_pickingMaterial = require('./275');
+var core_engine_picking_pickingMaterial = require('./PickingMaterial');
 var attr_index = require('./278');
 var attr_index___default = require.n(attr_index);
 var util = require('./Util');

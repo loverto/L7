@@ -2,10 +2,10 @@
 require.d(exports, 'a', function () {
   return FeatureIndex;
 });
-var __WEBPACK_IMPORTED_MODULE_0_rbush__ = require('./269');
-var __WEBPACK_IMPORTED_MODULE_0_rbush___default = require.n(__WEBPACK_IMPORTED_MODULE_0_rbush__);
-var __WEBPACK_IMPORTED_MODULE_1__turf_bbox__ = require('./271');
-var __WEBPACK_IMPORTED_MODULE_1__turf_bbox___default = require.n(__WEBPACK_IMPORTED_MODULE_1__turf_bbox__);
+var rbush = require('./269');
+var rbush___default = require.n(rbush);
+var turf_bbox = require('./271');
+var turf_bbox___default = require.n(turf_bbox);
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
 }
@@ -67,7 +67,7 @@ var FeatureIndex = function () {
   function FeatureIndex(data) {
     var _this = this;
     _classCallCheck(this, FeatureIndex);
-    this.tree = __WEBPACK_IMPORTED_MODULE_0_rbush___default()();
+    this.tree = rbush___default()();
     this.rawData = data;
     data.features.forEach(function (feature) {
       _this.insert(feature);
@@ -103,7 +103,7 @@ var FeatureIndex = function () {
     {
       key: 'toBBox',
       value: function toBBox(feature) {
-        var bbox = feature.type === 'Point' ? this.pointBBox(feature) : __WEBPACK_IMPORTED_MODULE_1__turf_bbox___default()(feature);
+        var bbox = feature.type === 'Point' ? this.pointBBox(feature) : turf_bbox___default()(feature);
         return {
           minX: bbox[0],
           minY: bbox[1],
