@@ -1,8 +1,8 @@
-var add = require('./291');
-var set = require('./292');
-var normalize = require('./293');
-var subtract = require('./294');
-var dot = require('./295');
+var add = require('./add');
+var set = require('./set');
+var normalize = require('./normalize');
+var subtract = require('./subtract');
+var dot = require('./dot');
 var tmp = [
   0,
   0
